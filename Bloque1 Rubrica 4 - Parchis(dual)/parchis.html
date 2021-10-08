@@ -31,26 +31,38 @@
 		background-color: green;
 	}
 	
-	.rotate-180 {
-		transform: rotate(180deg);
-	}
-	
 	div.row > div.slot-180 {
 		
+		height: 57px;
 		transform: rotate(180deg);
 	}
 	
-	.slot-180 {
+	div.row > div.slot-90 {
 		
-		text-align: end;
-		height: 49px;
+		transform: rotate(-90deg);
+	}
+	
+	.slot {
+		
+		height: 2.87em;
 	}
 	
 	.circle {
 		
-		width: 45px;
-		height: 45px;
-		background-color: hotpink;
+		width: 35px;
+		height: 35px;
+		background-color: orange;
+	}
+	
+	.square {
+		
+		width: 20em;
+		height: 20em;
+	}
+	
+	.home {
+		
+		height: 10em;
 	}
 	
 </style>
@@ -58,135 +70,206 @@
 	<div class="container">
 		<div class="row">
 			
-			<div class="col-4 border border-2 border-dark">
+			<div class="col-4 border border-2 border-dark square">
 				<div class="row">
 					
-					<div class="col-6 bg-red border-3 border-end border-bottom border-dark">
-						<br><br><br><br><br><br><br>
+					<div class="col-6 bg-red border-3 border-end border-bottom border-dark home">
+						
 					</div>
-					<div class="col-6 bg-red border-3 border-bottom border-dark">
-						<br><br><br><br><br><br><br>
+					<div class="col-6 bg-red border-3 border-bottom border-dark home">
+						
 					</div>
-					<div class="col-6 bg-red border-3 border-end border-dark">
-						<br><br><br><br><br><br><br>
+					<div class="col-6 bg-red border-3 border-end border-dark home">
+						
 					</div>
-					<div class="col-6 bg-red">
-						<br><br><br><br><br><br><br>
+					<div class="col-6 bg-red home">
+						
 					</div>
 				</div>
 			</div>
 			
-			<div class="col-4">
-				<div class="row">
+			<div class="col-4 square">
+				<div class="row slot">
 					
-					<div class="col-4 border-top border-bottom border-start border-2 border-dark slot-180">
+					<div class="col-4 border-top border-bottom border-start border-2 border-dark">
 						35
 					</div>
-					<div class="col-4 border-top border-bottom border-2 border-dark slot-180">
+					<div class="col-4 border-top border-bottom border-2 border-dark">
 						34
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark slot-180">
+					<div class="col-4 border-bottom border-end border-2 border-dark">
 						33
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col-4 border-start border-2 border-dark slot-180">
+				<div class="row slot">
+					<div class="col-4 border-start border-2 border-dark">
 						36
 					</div>
-					<div class="col-4 bg-red border-top border-2 border-dark slot-180">
+					<div class="col-4 bg-red border-top border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark slot-180">
+					<div class="col-4 border-bottom border-end border-2 border-dark">
 						32
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col-4 border-bottom border-start border-2 border-dark slot-180">
+				<div class="row slot">
+					<div class="col-4 border-bottom border-start border-2 border-dark">
 						37
 					</div>
 					<div class="col-4 bg-red border-bottom border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark slot-180">
+					<div class="col-4 border-bottom border-end border-2 border-dark">
 						31
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col-4 border-bottom border-start border-2 border-dark slot-180">
+				<div class="row slot">
+					<div class="col-4 border-bottom border-start border-2 border-dark">
 						38
 					</div>
-					<div class="col-4 bg-red border-2 border-dark slot-180">
+					<div class="col-4 bg-red border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark slot-180">
+					<div class="col-4 border-bottom border-end border-2 border-dark">
 						30
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col-4 border-bottom border-start border-2 border-dark slot-180 bg-red">
+				<div class="row slot">
+					<div class="col-4 border-bottom border-start border-2 border-dark bg-red position-relative">
 						
 						39
-						<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle">
-							
-							
-						</div>
+						<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
 						
 					</div>
-					<div class="col-4 bg-red border-bottom border-2 border-dark slot-180">
+					<div class="col-4 bg-red border-bottom border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark slot-180">
+					<div class="col-4 border-bottom border-end border-2 border-dark">
 						29
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col-4 border-bottom border-start border-2 border-dark slot-180">
+				<div class="row slot">
+					<div class="col-4 border-bottom border-start border-2 border-dark">
 						40
 					</div>
-					<div class="col-4 bg-red border-bottom border-2 border-dark slot-180">
+					<div class="col-4 bg-red border-bottom border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark slot-180">
+					<div class="col-4 border-bottom border-end border-2 border-dark">
 						28
 					</div>
 				</div>
 				
-				<div class="row">
-					<div class="col-4 border-bottom border-start border-2 border-dark slot-180">
+				<div class="row slot">
+					<div class="col-4 border-bottom border-start border-2 border-dark">
 						41
 					</div>
-					<div class="col-4 bg-red border-bottom border-2 border-dark slot-180">
+					<div class="col-4 bg-red border-bottom border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark slot-180">
+					<div class="col-4 border-bottom border-end border-2 border-dark">
 						27
 					</div>
 				</div>
 			</div>
 			
-			<div class="col-4 border border-2 border-dark">
+			
+			<div class="col-4 border border-2 border-dark square">
 				<div class="row">
 					
-					<div class="col-6 bg-blue border-3 border-end border-bottom border-dark">
-						<br><br><br><br><br><br><br>
+					<div class="col-6 bg-blue border-3 border-end border-bottom border-dark home">
 					</div>
-					<div class="col-6 bg-blue border-3 border-bottom border-dark">
-						<br><br><br><br><br><br><br>
+					<div class="col-6 bg-blue border-3 border-bottom border-dark home">
 					</div>
-					<div class="col-6 bg-blue border-3 border-end border-dark">
-						<br><br><br><br><br><br><br>
+					<div class="col-6 bg-blue border-3 border-end border-dark home">
 					</div>
-					<div class="col-6 bg-blue">
-						<br><br><br><br><br><br><br>
+					<div class="col-6 bg-blue home">
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<div class="row">
+			
+			<div class="col-4 square">
+				<div class="row">
+					
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+				</div>
+				
+				<div class="row">
+					
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+				</div>
+				
+				<div class="row">
+					
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+				</div>
+			</div>
+
+		<div class="col-4 square">
+			<img src="./src/image.png" alt="" srcset="" style="width: 100%; height: 100%;">
+		</div>
+		
+		<div class="col-4 square">
+				<div class="row">
+					
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+				</div>
+				
+				<div class="row">
+					
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+				</div>
+				
+				<div class="row">
+					
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+					<div class="col border border-2 border-dark slot"></div>
+				</div>
+			</div>
 	</div>
+</div>
 </body>
 </html>
