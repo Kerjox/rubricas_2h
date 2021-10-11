@@ -13,33 +13,22 @@
 	
 	.bg-blue {
 		
-		background-color: blue;
+		background-color: #008cff	;
 	}
 	
 	.bg-red {
 		
-		background-color: red;
+		background-color: #ff0000;
 	}
 	
 	.bg-yellow {
 		
-		background-color: yellow;
+		background-color: #ffff00;
 	}
 	
 	.bg-green {
 		
-		background-color: green;
-	}
-	
-	div.row > div.slot-180 {
-		
-		height: 57px;
-		transform: rotate(180deg);
-	}
-	
-	div.row > div.slot-90 {
-		
-		transform: rotate(-90deg);
+		background-color: #00c600;
 	}
 	
 	.slot {
@@ -63,6 +52,17 @@
 	.home {
 		
 		height: 10em;
+	}
+
+	.rotate-180 {
+
+		height: 100%;
+		transform: rotate(180deg);
+	}
+
+	p {
+
+		font-size: 16pt;
 	}
 	
 </style>
@@ -91,89 +91,89 @@
 			<div class="col-4 square">
 				<div class="row slot">
 					
-					<div class="col-4 border-top border-bottom border-start border-2 border-dark">
-						35
+					<div class="col-4 border-top border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">35</p>
 					</div>
-					<div class="col-4 border-top border-bottom border-2 border-dark">
-						34
+					<div class="col-4 border border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">34</p>
+						<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark">
-						33
-					</div>
-				</div>
-				
-				<div class="row slot">
-					<div class="col-4 border-start border-2 border-dark">
-						36
-					</div>
-					<div class="col-4 bg-red border-top border-2 border-dark">
-						
-					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark">
-						32
+					<div class="col-4 border-top border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">33</p>
 					</div>
 				</div>
 				
 				<div class="row slot">
-					<div class="col-4 border-bottom border-start border-2 border-dark">
-						37
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">36</p>
 					</div>
-					<div class="col-4 bg-red border-bottom border-2 border-dark">
+					<div class="col-4 bg-red border-bottom border-start border-end border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark">
-						31
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">32</p>
 					</div>
 				</div>
 				
 				<div class="row slot">
-					<div class="col-4 border-bottom border-start border-2 border-dark">
-						38
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">37</p>
 					</div>
-					<div class="col-4 bg-red border-2 border-dark">
+					<div class="col-4 bg-red border-bottom border-start border-end border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark">
-						30
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">31</p>
 					</div>
 				</div>
 				
 				<div class="row slot">
-					<div class="col-4 border-bottom border-start border-2 border-dark bg-red position-relative">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">38</p>
+					</div>
+					<div class="col-4 bg-red border-2 border-bottom border-start border-end border-dark">
 						
-						39
+					</div>
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">30</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark bg-red position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">39</p>
 						<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
 						
 					</div>
-					<div class="col-4 bg-red border-bottom border-2 border-dark">
+					<div class="col-4 bg-red border-bottom border-start border-end border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark">
-						29
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">29</p>
 					</div>
 				</div>
 				
 				<div class="row slot">
-					<div class="col-4 border-bottom border-start border-2 border-dark">
-						40
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">40</p>
 					</div>
-					<div class="col-4 bg-red border-bottom border-2 border-dark">
+					<div class="col-4 bg-red border-bottom border-start border-end border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark">
-						28
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">28</p>
 					</div>
 				</div>
 				
 				<div class="row slot">
-					<div class="col-4 border-bottom border-start border-2 border-dark">
-						41
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">41</p>
 					</div>
-					<div class="col-4 bg-red border-bottom border-2 border-dark">
+					<div class="col-4 bg-red border-bottom border-start border-end border-2 border-dark">
 						
 					</div>
-					<div class="col-4 border-bottom border-end border-2 border-dark">
-						27
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">27</p>
 					</div>
 				</div>
 			</div>
@@ -196,79 +196,314 @@
 		
 		<div class="row">
 			
-			<div class="col-4 square">
-				<div class="row">
+			<div class="col-4 square" style="transform: rotate(-90deg);">
+				<div class="row slot">
 					
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
+					<div class="col-4 border-top border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">52</p>
+					</div>
+					<div class="col-4 border border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">51</p>
+						<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
+					</div>
+					<div class="col-4 border-top border-bottom border-end border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">50</p>
+					</div>
 				</div>
 				
-				<div class="row">
-					
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">53</p>
+					</div>
+					<div class="col-4 bg-green border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-end border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">49</p>
+					</div>
 				</div>
 				
-				<div class="row">
-					
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">54</p>
+					</div>
+					<div class="col-4 bg-green border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-end border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">48</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">55</p>
+					</div>
+					<div class="col-4 bg-green border-2 border-bottom border-start border-end border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-end border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">47</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark bg-green position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">56</p>
+						<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
+						
+					</div>
+					<div class="col-4 bg-green border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-end border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">46</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">57</p>
+					</div>
+					<div class="col-4 bg-green border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-end border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">45</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">58</p>
+					</div>
+					<div class="col-4 bg-green border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-end border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">44</p>
+					</div>
 				</div>
 			</div>
 
-		<div class="col-4 square">
-			<img src="./src/image.png" alt="" srcset="" style="width: 100%; height: 100%;">
+		<div class="col-4 square m-0 p-0">
+			<img src="./src/image.png" alt="" srcset="" style="width: 101%; height: 101%;">
 		</div>
 		
-		<div class="col-4 square">
-				<div class="row">
-					
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-				</div>
+		<div class="col-4 square" style="transform: rotate(90deg);">
+			<div class="row slot">
 				
-				<div class="row">
-					
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
+				<div class="col-4 border-top border-bottom border-start border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">18</p>
 				</div>
-				
-				<div class="row">
-					
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
-					<div class="col border border-2 border-dark slot"></div>
+				<div class="col-4 border border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">17</p>
+					<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
+				</div>
+				<div class="col-4 border-top border-bottom border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">16</p>
 				</div>
 			</div>
+			
+			<div class="row slot">
+				<div class="col-4 border-bottom border-start border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">19</p>
+				</div>
+				<div class="col-4 bg-blue border-bottom border-start border-end border-2 border-dark">
+					
+				</div>
+				<div class="col-4 border-bottom border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">15</p>
+				</div>
+			</div>
+			
+			<div class="row slot">
+				<div class="col-4 border-bottom border-start border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">20</p>
+				</div>
+				<div class="col-4 bg-blue border-bottom border-start border-end border-2 border-dark">
+					
+				</div>
+				<div class="col-4 border-bottom border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">14</p>
+				</div>
+			</div>
+			
+			<div class="row slot">
+				<div class="col-4 border-bottom border-start border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">21</p>
+				</div>
+				<div class="col-4 bg-blue border-2 border-bottom border-start border-end border-dark">
+					
+				</div>
+				<div class="col-4 border-bottom border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">13</p>
+				</div>
+			</div>
+			
+			<div class="row slot">
+				<div class="col-4 border-bottom border-start border-2 border-dark bg-blue position-relative">
+					<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">22</p>
+					<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
+				</div>
+				<div class="col-4 bg-blue border-bottom border-start border-end border-2 border-dark">
+					
+				</div>
+				<div class="col-4 border-bottom border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">12</p>
+				</div>
+			</div>
+			
+			<div class="row slot">
+				<div class="col-4 border-bottom border-start border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">23</p>
+				</div>
+				<div class="col-4 bg-blue border-bottom border-start border-end border-2 border-dark">
+					
+				</div>
+				<div class="col-4 border-bottom border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">11</p>
+				</div>
+			</div>
+			
+			<div class="row slot">
+				<div class="col-4 border-bottom border-start border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">24</p>
+				</div>
+				<div class="col-4 bg-blue border-bottom border-start border-end border-2 border-dark">
+					
+				</div>
+				<div class="col-4 border-bottom border-2 border-dark position-relative">
+					<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">10</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			
+			<div class="col-4 border border-2 border-dark square">
+				<div class="row">
+					
+					<div class="col-6 bg-green border-3 border-end border-bottom border-dark home">
+						
+					</div>
+					<div class="col-6 bg-green border-3 border-bottom border-dark home">
+						
+					</div>
+					<div class="col-6 bg-green border-3 border-bottom border-end border-dark home">
+						
+					</div>
+					<div class="col-6 bg-green border-3 border-bottom border-dark home">
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-4 square" style="transform: rotate(180deg);">
+				<div class="row slot">
+					
+					<div class="col-4 border-top border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">1</p>
+					</div>
+					<div class="col-4 border border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">68</p>
+						<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
+					</div>
+					<div class="col-4 border-top border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">67</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">2</p>
+					</div>
+					<div class="col-4 bg-yellow border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">66</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">3</p>
+					</div>
+					<div class="col-4 bg-yellow border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">65</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">4</p>
+					</div>
+					<div class="col-4 bg-yellow border-2 border-bottom border-start border-end border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">64</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark bg-yellow position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">5</p>
+						<div class="circle rounded-circle border border-2 border-dark position-absolute top-50 start-50 translate-middle"></div>
+						
+					</div>
+					<div class="col-4 bg-yellow border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">63</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">6</p>
+					</div>
+					<div class="col-4 bg-yellow border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">62</p>
+					</div>
+				</div>
+				
+				<div class="row slot">
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="right: 6px; bottom: 0px;">7</p>
+					</div>
+					<div class="col-4 bg-yellow border-bottom border-start border-end border-2 border-dark">
+						
+					</div>
+					<div class="col-4 border-bottom border-2 border-dark position-relative">
+						<p class="rotate-180 position-absolute" style="left: 6px; bottom: 0px;">61</p>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="col-4 border border-2 border-dark square">
+				<div class="row">
+					
+					<div class="col-6 bg-yellow border-3 border-end border-bottom border-dark home">
+					</div>
+					<div class="col-6 bg-yellow border-3 border-bottom border-dark home">
+					</div>
+					<div class="col-6 bg-yellow border-bottom border-3 border-end border-dark home">
+					</div>
+					<div class="col-6 bg-yellow border-bottom border-3 border-dark home">
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 </body>
