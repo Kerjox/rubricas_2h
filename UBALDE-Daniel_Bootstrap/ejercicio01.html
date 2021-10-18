@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>1</title>
+
+    <style>
+
+        .bg-red {
+            background-color: red;
+        }
+
+        .bg-yellow {
+
+            background-color: yellow;
+        }
+
+        .bg-orange {
+
+            background-color: orange;
+        }
+
+        .bg-cyan {
+
+            background-color: cyan;
+        }
+
+        .bg-lime {
+
+            background-color: lime;
+        }
+
+        .bg-purple {
+
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-8 d-lg-none d-xl-block bg-red">
+                A
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-12 bg-yellow">
+                B
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4 offset-md-2 offset-lg-6 col-lg-6 d-lg-block d-xl-none bg-orange order-lg-2">
+                C
+            </div>
+            <div class="col-sm-6 col-md-4 d-lg-none d-xl-block bg-cyan">
+                D
+            </div>
+            <div class="col-sm-6 d-none d-sm-block d-md-none col-lg-6 d-lg-block d-xl-none bg-lime order-lg-1">
+                E
+            </div>
+            <div class="col-sm-6 col-md-10 col-lg-12 bg-purple order-lg-3">
+                F
+            </div>
+        </div>
+    </div>
+</body>
+</html>
