@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+
+	<record id="ships_list_action" model="ir.actions.act_window">
+		<field name="name">Ships</field>
+		<field name="res_model">ksi.ships</field>
+		<field name="view_mode">tree,form,calendar</field>
+	</record>
+
+	<!-- Ships form view -->
+	<record id="ships_view_form" model="ir.ui.view">
+		<field name="name">ships.view.form</field>
+		<field name="model">ksi.ships</field>
+		<field name="arch" type="xml">
+			<form string="Ships">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="model"/>
+						<field name="manufacturer"/>
+						<field name="manufacture_date"/>
+						<field name="space_cargo_slot"/>
+						<field name="cargo_slots"/>
+						<field name="cargo_space"/>
+						<field name="stock"/>
+						<field name="concesionario_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- Ships tree view -->
+	<record id="ships_view_tree" model="ir.ui.view">
+		<field name="name">ships.view.tree</field>
+		<field name="model">ksi.ships</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="model"/>
+				<field name="manufacturer"/>
+				<field name="manufacture_date"/>
+				<field name="space_cargo_slot"/>
+				<field name="cargo_slots"/>
+				<field name="cargo_space"/>
+				<field name="stock"/>
+				<field name="concesionario_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Ships calendar view -->
+	<record id="ksi_view_calendar" model="ir.ui.view">
+		<field name="name">ships.view.calendar</field>
+		<field name="model">ksi.ships</field>
+		<field name="arch" type="xml">
+			<calendar string="Calendar Description" date_start="manufacture_date">
+				<!-- Add your fields here -->
+				<field name="manufacture_date"/>
+			</calendar>
+		</field>
+	</record>
+
+	<!-- Ships search view -->
+	<record id="ships_view_search" model="ir.ui.view">
+		<field name="name">ships.view.search</field>
+		<field name="model">ksi.ships</field>
+		<field name="arch" type="xml">
+			<search string="Nave">
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<group string="Group By">
+					<filter name="group_by_concesionario" string="Concesionario"
+                context="{'group_by': 'concesionario_id'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+
+
+	<record id="concesionarios_list_action" model="ir.actions.act_window">
+		<field name="name">Concesionarios</field>
+		<field name="res_model">ksi.concesionarios</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<!-- Spaceports action window -->
+	<record id="spaceports_action" model="ir.actions.act_window">
+		<field name="name">Puertos espaciales</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">ksi.space.ports</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+				Puertos espaciales
+			</p><p>
+				<!-- More details about what a user can do with this object will be OK -->
+				Puedes hacer cosas aqui
+			</p>
+		</field>
+	</record>
+
+	<!-- Spaceports form view -->
+	<record id="space_ports_view_form" model="ir.ui.view">
+		<field name="name">space.ports.view.form</field>
+		<field name="model">ksi.space.ports</field>
+		<field name="arch" type="xml">
+			<form string="Puertos espaciales">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="orbita"/>
+						<field name="concesionarios_id"/>
+						<field name="planet_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- spaceports tree view -->
+	<record id="space_ports_view_tree" model="ir.ui.view">
+		<field name="name">space.ports.view.tree</field>
+		<field name="model">ksi.space.ports</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="orbita"/>
+				<field name="concesionarios_id"/>
+				<field name="planet_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="planetas_list_action" model="ir.actions.act_window">
+		<field name="name">Planetas</field>
+		<field name="res_model">ksi.planets</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="systems_list_action" model="ir.actions.act_window">
+		<field name="name">Sistemas Planetarios</field>
+		<field name="res_model">ksi.systems</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem name="Kerjox Space Industries" id="ksi_root_menu"/>
+
+		<menuitem name="Ships" id="ships_menu" parent="ksi_root_menu"/>
+			<menuitem name="Usuario" id="ships_users" parent="ships_menu" action="ships_list_action"/>
+			<menuitem name="Concesionarios" id="ships_concesionarios" parent="ships_menu" action="ships_list_action"/>
+
+
+		<menuitem name="Tiendas" id="inmuebles_menu" parent="ksi_root_menu"/>
+
+			<menuitem name="Concesionarios" id="ksi_shops" parent="inmuebles_menu"/>
+			
+				<menuitem name="Listado" id="ksi_concesionarios" parent="ksi_shops" action="concesionarios_list_action"/>
+
+		<menuitem name="Puertos espaciales" id="spaceports_menu" parent="ksi_root_menu"/>
+
+			<menuitem name="Listado" id="ksi_spaceports" parent="spaceports_menu" action="spaceports_action"/>
+
+		<menuitem name="Planetas" id="planets_menu" parent="ksi_root_menu"/>
+
+			<menuitem name="Listado" id="ksi_planets" parent="planets_menu" action="planetas_list_action"/>
+
+		<menuitem name="Sistemas Planetarios" id="systems_menu" parent="ksi_root_menu"/>
+
+			<menuitem name="Listado" id="ksi_systems" parent="systems_menu" action="systems_list_action"/>
+
+</odoo>
+
