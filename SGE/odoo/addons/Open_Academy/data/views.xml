@@ -1,4 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+    <!-- aca.course action window -->
+    <record id="course_action" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aca.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
     
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="academy_menu_root" name="Academy"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="courses_menu_act" name="Courses" parent="academy_menu_root" action="course_action"/>
 </odoo>
