@@ -1,23 +1,67 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <!-- aca.course action window -->
-    <record id="course_action" model="ir.actions.act_window">
-        <field name="name">Courses</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">aca.course</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="oe_view_nocontent_create">
-                <!-- Add Text Here -->
-            </p><p>
-                <!-- More details about what a user can do with this object will be OK --> 
-            </p>
-        </field>
-    </record>
-    
+	<!-- aca.courses action window -->
+	<record id="course_action" model="ir.actions.act_window">
+		<field name="name">Courses</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">aca.courses</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+			</p>
+			<p>
+				<!-- More details about what a user can do with this object will be OK -->
+			</p>
+		</field>
+	</record>
 
-    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
-    <menuitem id="academy_menu_root" name="Academy"/>
-        <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="courses_menu_act" name="Courses" parent="academy_menu_root" action="course_action"/>
+	<!-- aca.courses tree view -->
+	<record id="courses_view_tree" model="ir.ui.view">
+		<field name="name">aca.courses.view.tree</field>
+		<field name="model">aca.courses</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="description"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- aca.courses form view -->
+	<record id="courses_view_form" model="ir.ui.view">
+		<field name="name">aca.courses.view.form</field>
+		<field name="model">aca.courses</field>
+		<field name="arch" type="xml">
+			<form string="Cursos Form">
+				<sheet>
+					<group colspan="4">
+						<group colspan="2" col="2">
+							<separator string="Grupo 1" colspan="2"/>
+							<field name="name"/>
+							<field name="description"/>
+
+						</group>
+						<group colspan="2" col="2">
+							<separator string="Grupo 2" colspan="2"/>
+							<field name="name"/>
+							<field name="description"/>
+						</group>
+						<notebook colspan="4">
+            <page string="Description">
+                <field name="description" nolabel="1"/>
+            </page>
+        </notebook>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+	<menuitem id="academy_menu_root" name="Academy"/>
+	<!-- This Menu Item must have a parent and an action -->
+	<menuitem id="courses_menu_act" name="Courses" parent="academy_menu_root" action="course_action"/>
 </odoo>
