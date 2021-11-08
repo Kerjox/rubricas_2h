@@ -1,2 +1,4 @@
 **/*.zip 
 *.code-workspace
+*.idea
+*target
