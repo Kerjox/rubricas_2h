@@ -12,4 +12,22 @@
 		<servlet-name>personaServlet</servlet-name>
 		<url-pattern>/send-user</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>deletePersona</servlet-name>
+		<servlet-class>com.ubalde.bloque3_rubrica_5.servlets.deletePersona</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deletePersona</servlet-name>
+		<url-pattern>/delete-user</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>listPersonas</servlet-name>
+		<servlet-class>com.ubalde.bloque3_rubrica_5.servlets.listPersonas</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>listPersonas</servlet-name>
+		<url-pattern>/list-users</url-pattern>
+	</servlet-mapping>
 </web-app>

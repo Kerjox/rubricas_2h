@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +49,18 @@
 		<!-- Submit button -->
 		<button type="submit" class="btn btn-primary btn-block">Send</button>
 	</form>
+	<br>
+	<a class="btn btn-primary" href="list-users">Listado</a>
+	<c:if test="${requestScope.removed}">
+	<br>
+	<div class="alert alert-danger d-flex align-items-center" role="alert">
+		<div>
+			The user ${requestScope.persona.name} has been deleted
+		</div>
+	</div>
 </div>
+	</c:if>
+
 
 	<!-- MDB -->
 	<script
