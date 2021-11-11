@@ -1,11 +1,21 @@
 import random
 from odoo import fields, models, api
+from odoo.exceptions import ValidationError
+
 
 class User(models.Model):
     _name = 'ksi.users'
     name = fields.Char('Nombre')
-    ship_id = fields.One2many('ksi.user.ships', 'user_id', string='Nave')
+    age = fields.Integer('Edad')
+    ship_id = fields.One2many('ksi.ships', 'user_id', string='Nave')
 
+    # Validation Error
+    @api.constrains('age')
+    def _check_something(self):
+        for record in self:
+            if record.age > 100:
+                raise ValidationError("OMG: %s years WTF!" % record.age)
+    # all records passed the test, don't return anything
 class Ships(models.Model):
     _name = 'ksi.ships'
     name = fields.Char('Nombre')
@@ -31,13 +41,17 @@ class Ships(models.Model):
                 }
         }
 
+    # SQL constrain
+    _sql_constraints = [ ('name',
+                            'UNIQUE (name)',
+                            'El nombre no se puede duplicar'), ]
+
 class ConcesionariosShips(models.Model):
     _inherit = 'ksi.ships'
     stock = fields.Integer('Cantodad')
     concesionario_id = fields.Many2one('ksi.concesionarios', string='Concesionario')
 
 class UserShips(models.Model):
-    _name = 'ksi.user.ships'
     _inherit = 'ksi.ships'
     user_id = fields.Many2one('ksi.users', string='Usuario')
 

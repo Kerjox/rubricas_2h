@@ -26,6 +26,7 @@
 						<field name="cargo_space"/>
 						<field name="stock"/>
 						<field name="concesionario_id"/>
+						<field name="user_id"/>
 					</group>
 				</sheet>
 			</form>
@@ -48,6 +49,7 @@
 				<field name="cargo_space"/>
 				<field name="stock"/>
 				<field name="concesionario_id"/>
+				<field name="user_id"/>
 			</tree>
 		</field>
 	</record>
@@ -150,9 +152,50 @@
 		<field name="view_mode">tree,form</field>
 	</record>
 
+	<record id="users_list_action" model="ir.actions.act_window">
+		<field name="name">Usuarios</field>
+		<field name="res_model">ksi.users</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<!-- ksi.users form view -->
+	<record id="users_view_form" model="ir.ui.view">
+		<field name="name">ksi.users.view.form</field>
+		<field name="model">ksi.users</field>
+		<field name="arch" type="xml">
+			<form string="Usuarios">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="age"/>
+						<field name="ship_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- ksi.users tree view -->
+	<record id="model_name_view_tree" model="ir.ui.view">
+		<field name="name">ksi.users.view.tree</field>
+		<field name="model">ksi.users</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="age"/>
+				<field name="ship_id"/>
+			</tree>
+		</field>
+	</record>
+
 	<menuitem name="Kerjox Space Industries" id="ksi_root_menu"/>
 
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="users_menu_act" name="Users" parent="ksi_root_menu" action="users_list_action"/>
 		<menuitem name="Ships" id="ships_menu" parent="ksi_root_menu"/>
+			<menuitem name="Naves" id="ships" parent="ships_menu" action="ships_list_action"/>
 			<menuitem name="Usuario" id="ships_users" parent="ships_menu" action="ships_list_action"/>
 			<menuitem name="Concesionarios" id="ships_concesionarios" parent="ships_menu" action="ships_list_action"/>
 
