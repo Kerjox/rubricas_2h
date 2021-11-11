@@ -47,16 +47,16 @@
 		<c:forEach var="alumno" items="${requestScope.alumnos}">
 			<tr>
 				<td>${alumno.name}</td>
-				<td>${alumno.edad}</td>
+				<td>${alumno.edad} años</td>
 				<td>${alumno.titulacion.name}</td>
 
 				<td>
-					<form method="post" action="edit-alumno" style="float: left; margin-right: 10px">
+					<form method="post" action="/alumno/edit" style="float: left; margin-right: 10px">
 						<input type="hidden" name="id" value="${alumno.id}">
 						<button type="submit" class="btn btn-primary btn-sm m-0"><i class="fas fa-edit"></i></button>
 					</form>
 
-					<form method="post" action="delete-alumno" style="float: left;">
+					<form method="post" action="/alumno/delete" style="float: left;">
 						<input type="hidden" name="id" value="${alumno.id}">
 						<button type="submit" class="btn btn-danger btn-sm m-0"><i class="fas fa-times"></i></button>
 					</form>
@@ -68,7 +68,7 @@
 		</tbody>
 		<!-- Table body -->
 	</table>
-	<a class="btn btn-primary" href="index.jsp">Index</a>
+	<a class="btn btn-primary" href="/">Index</a>
 </div>
 <!-- Table  -->
 <!-- MDB -->

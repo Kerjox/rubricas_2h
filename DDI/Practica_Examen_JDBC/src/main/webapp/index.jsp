@@ -8,8 +8,8 @@
 <div class="container">
 
 	<a href="insertTitulacion.jsp">Insertar Titulación</a>
-	<a href="form-insert-alumno">Insertar Alumno</a>
-	<a href="list-alumnos">List Alumnos</a>
+	<a href="/form/alumno/insert">Insertar Alumno</a>
+	<a href="/alumno/list">List Alumnos</a>
 
 </div>
 </body>

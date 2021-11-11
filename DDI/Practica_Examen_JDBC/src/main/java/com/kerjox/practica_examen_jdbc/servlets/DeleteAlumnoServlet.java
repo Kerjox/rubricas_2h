@@ -9,19 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class InsertAlumno extends BaseServlet {
+public class DeleteAlumnoServlet extends BaseServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doSomething(req, resp);
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doSomething(req, resp);
+	}
+
 	private void doSomething(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		Alumno alumno = getAlumnoFromRequest(req);
-		Repo<Alumno> alumnosRepo = new AlumnosRepo();
-		alumnosRepo.insert(alumno);
+		Integer id = Integer.valueOf(req.getParameter("id"));
+		Repo<Alumno> alumnoRepo = new AlumnosRepo();
+		alumnoRepo.delete(id);
 
-		redirect(req, resp, "/index.jsp");
+		redirect(req, resp, "/alumno/list");
 	}
 }

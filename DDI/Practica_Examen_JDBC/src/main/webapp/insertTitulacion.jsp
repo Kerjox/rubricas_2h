@@ -13,7 +13,7 @@
 <body>
 <div class="container">
 	<h1>Insertar titulación</h1>
-	<form method="post" action="insert-titulacion">
+	<form method="post" action="/titulacion/insert">
 		<label>
 			<input type="text" name="name" placeholder="Titulación">
 		</label>

@@ -106,7 +106,7 @@ public class AlumnosRepo implements Repo<Alumno> {
 		PreparedStatement statement = null;
 
 		try {
-			statement = conn.prepareStatement("DELETE FROM TITULACIONES WHERE ID = ?");
+			statement = conn.prepareStatement("DELETE FROM ALUMNOS WHERE ID = ?");
 			statement.setInt(1, id);
 
 			statement.execute();

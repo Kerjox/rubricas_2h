@@ -11,7 +11,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>titulacionServlet</servlet-name>
-		<url-pattern>insert-titulacion</url-pattern>
+		<url-pattern>/titulacion/insert</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -20,16 +20,16 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>formInsertAlumnoServletDao</servlet-name>
-		<url-pattern>form-insert-alumno</url-pattern>
+		<url-pattern>/form/alumno/insert</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>insertAlumno</servlet-name>
-		<servlet-class>com.kerjox.practica_examen_jdbc.servlets.InsertAlumno</servlet-class>
+		<servlet-class>com.kerjox.practica_examen_jdbc.servlets.InsertAlumnoServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>insertAlumno</servlet-name>
-		<url-pattern>insert-alumno</url-pattern>
+		<url-pattern>/alumno/insert</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -38,7 +38,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>listAlumnosServlet</servlet-name>
-		<url-pattern>list-alumnos</url-pattern>
+		<url-pattern>/alumno/list</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -47,7 +47,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>editAlumnoServletDao</servlet-name>
-		<url-pattern>edit-alumno</url-pattern>
+		<url-pattern>/alumno/edit</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -56,7 +56,16 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>editAlumnoServlet</servlet-name>
-		<url-pattern>update-alumno</url-pattern>
+		<url-pattern>/alumno/update</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>deleteAlumnoServlet</servlet-name>
+		<servlet-class>com.kerjox.practica_examen_jdbc.servlets.DeleteAlumnoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteAlumnoServlet</servlet-name>
+		<url-pattern>/alumno/delete</url-pattern>
 	</servlet-mapping>
 
 </web-app>

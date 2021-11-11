@@ -23,6 +23,6 @@ public class EditAlumnoServlet extends BaseServlet {
 
 		alumnosRepo.update(alumno);
 
-		redirect(req, resp, "list-alumnos");
+		redirect(req, resp, "/alumno/list");
 	}
 }

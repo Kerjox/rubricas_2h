@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-	<form method="post" action="update-alumno">
+	<form method="post" action="/alumno/update">
 		<input type="hidden" name="id" value="${requestScope.alumno.id}">
 		<label>
 			<span>Nombre</span>
@@ -28,7 +28,7 @@
 			<select name="titulacion" name="titulacion">
 				<c:forEach items="${requestScope.titulaciones}" var="titulacion">
 					<c:if test="${titulacion.id == requestScope.alumno.titulacion.id}">
-						<option value="${titulacion.id}" selected="true">${titulacion.name}</option>
+						<option value="${titulacion.id}" selected>${titulacion.name}</option>
 					</c:if>
 
 					<c:if test="${titulacion.id != requestScope.alumno.titulacion.id}">

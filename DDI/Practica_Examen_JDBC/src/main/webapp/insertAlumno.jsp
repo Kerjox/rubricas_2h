@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-	<form method="post" action="insert-alumno">
+	<form method="post" action="/alumno/insert">
 		<label>
 			<span>Nombre</span>
 			<input type="text" name="name">
