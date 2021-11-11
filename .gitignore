@@ -2,3 +2,4 @@
 *.code-workspace
 *.idea
 *target
+/DDI/Practica_Examen_JDBC/Practica_Examen_JDBC.iml
