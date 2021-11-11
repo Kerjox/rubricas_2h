@@ -128,7 +128,8 @@ public class AlumnosRepo implements Repo<Alumno> {
 		Alumno alumno = new Alumno();
 
 		try {
-			statement = conn.prepareStatement("SELECT * FROM ALUMNOS");
+			statement = conn.prepareStatement("SELECT * FROM ALUMNOS WHERE ID = ?");
+			statement.setInt(1, id);
 			ResultSet rs = statement.executeQuery();
 
 			TitulacionRepo titulacionRepo = new TitulacionRepo();
