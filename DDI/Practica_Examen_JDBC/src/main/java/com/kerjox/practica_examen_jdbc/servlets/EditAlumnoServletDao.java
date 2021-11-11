@@ -3,6 +3,7 @@ package com.kerjox.practica_examen_jdbc.servlets;
 import com.kerjox.practica_examen_jdbc.entities.Alumno;
 import com.kerjox.practica_examen_jdbc.entities.Titulacion;
 import com.kerjox.practica_examen_jdbc.repos.AlumnosRepo;
+import com.kerjox.practica_examen_jdbc.repos.Repo;
 import com.kerjox.practica_examen_jdbc.repos.TitulacionRepo;
 
 import javax.servlet.ServletException;
@@ -21,8 +22,8 @@ public class EditAlumnoServletDao extends BaseServlet {
 	private void doSomething(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Integer id = Integer.valueOf(req.getParameter("id"));
-		AlumnosRepo alumnosRepo = new AlumnosRepo();
-		TitulacionRepo titulacionRepo = new TitulacionRepo();
+		Repo<Alumno> alumnosRepo = new AlumnosRepo();
+		Repo<Titulacion> titulacionRepo = new TitulacionRepo();
 		List<Titulacion> titulacionesList = titulacionRepo.findAll();
 
 		Alumno alumno = alumnosRepo.findById(id);

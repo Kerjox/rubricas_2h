@@ -1,6 +1,7 @@
 package com.kerjox.practica_examen_jdbc.servlets;
 
 import com.kerjox.practica_examen_jdbc.entities.Titulacion;
+import com.kerjox.practica_examen_jdbc.repos.Repo;
 import com.kerjox.practica_examen_jdbc.repos.TitulacionRepo;
 
 import javax.servlet.ServletException;
@@ -23,7 +24,7 @@ public class FormInsertAlumnoServletDao extends BaseServlet {
 
 	private void doSomething(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		TitulacionRepo repo = new TitulacionRepo();
+		Repo<Titulacion> repo = new TitulacionRepo();
 
 		List<Titulacion> titulacionList = repo.findAll();
 		req.setAttribute("titulaciones", titulacionList);

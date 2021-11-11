@@ -2,6 +2,7 @@ package com.kerjox.practica_examen_jdbc.servlets;
 
 import com.kerjox.practica_examen_jdbc.entities.Alumno;
 import com.kerjox.practica_examen_jdbc.repos.AlumnosRepo;
+import com.kerjox.practica_examen_jdbc.repos.Repo;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ public class EditAlumnoServlet extends BaseServlet {
 	private void doSomething(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Alumno alumno = getAlumnoFromRequest(req);
-		AlumnosRepo alumnosRepo = new AlumnosRepo();
+		Repo<Alumno> alumnosRepo = new AlumnosRepo();
 
 		alumnosRepo.update(alumno);
 

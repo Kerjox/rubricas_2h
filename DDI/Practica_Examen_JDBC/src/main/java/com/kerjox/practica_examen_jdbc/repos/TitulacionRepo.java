@@ -11,11 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TitulacionRepo {
+public class TitulacionRepo implements Repo<Titulacion> {
 
-	private static final String JDBC_URL = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT FROM 'classpath:/scripts/init.sql'";
 	AbstractConnection manager = new H2Connection();
 
+	@Override
 	public void insert(Titulacion titulacion) {
 
 		Connection conn = manager.open(JDBC_URL);
@@ -36,6 +36,7 @@ public class TitulacionRepo {
 
 	}
 
+	@Override
 	public List<Titulacion> findAll() {
 
 		Connection conn = manager.open(JDBC_URL);
@@ -68,6 +69,7 @@ public class TitulacionRepo {
 		return titulacion;
 	}
 
+	@Override
 	public void update(Titulacion titulacion) {
 
 		Connection conn = manager.open(JDBC_URL);
@@ -89,6 +91,7 @@ public class TitulacionRepo {
 		}
 	}
 
+	@Override
 	public void delete(Integer id) {
 
 		Connection conn = manager.open(JDBC_URL);
@@ -109,6 +112,7 @@ public class TitulacionRepo {
 		}
 	}
 
+	@Override
 	public Titulacion findById(Integer id) {
 
 		Connection conn = manager.open(JDBC_URL);

@@ -1,6 +1,7 @@
 package com.kerjox.practica_examen_jdbc.servlets;
 
 import com.kerjox.practica_examen_jdbc.entities.Titulacion;
+import com.kerjox.practica_examen_jdbc.repos.Repo;
 import com.kerjox.practica_examen_jdbc.repos.TitulacionRepo;
 
 import javax.servlet.ServletException;
@@ -18,9 +19,9 @@ public class InsertTitulacionServlet extends BaseServlet {
 	private void doSomething(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Titulacion t = getTitulacionFromRequest(req);
-		TitulacionRepo repo = new TitulacionRepo();
+		Repo<Titulacion> titulacionRepo = new TitulacionRepo();
 
-		repo.insert(t);
+		titulacionRepo.insert(t);
 
 		redirect(req, resp, "/index.jsp");
 	}
