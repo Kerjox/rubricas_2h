@@ -44,8 +44,8 @@
 
 		<!-- Table body -->
 		<tbody>
-		<tr>
-			<c:forEach var="persona" items="${requestScope.personas}">
+		<c:forEach var="persona" items="${requestScope.personas}">
+			<tr>
 
 				<td>${persona.name}</td>
 				<td>${persona.birthday}</td>
@@ -54,7 +54,7 @@
 					<c:if test="${persona.step == 1}">
 						<c:out value="Primero"></c:out>
 					</c:if>
-					<c:if test="${requestScope.persona.step == 2}">
+					<c:if test="${persona.step == 2}">
 						<c:out value="Segundo"></c:out>
 					</c:if>
 				</td>
@@ -64,8 +64,8 @@
 						<button type="submit" class="btn btn-danger btn-sm m-0"><i class="fas fa-times"></i></button>
 					</form>
 				</td>
-			</c:forEach>
-		</tr>
+			</tr>
+		</c:forEach>
 
 		</tbody>
 		<!-- Table body -->

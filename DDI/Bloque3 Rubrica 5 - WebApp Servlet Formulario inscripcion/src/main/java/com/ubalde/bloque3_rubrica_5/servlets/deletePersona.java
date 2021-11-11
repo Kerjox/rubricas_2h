@@ -26,6 +26,6 @@ public class deletePersona extends BaseServlet {
 
 		repo.delete(id);
 		req.setAttribute("removed", Boolean.TRUE	);
-		redirect(req, resp, "/index.jsp");
+		redirect(req, resp, "/list-users");
 	}
 }
