@@ -75,15 +75,17 @@ public class AlumnosRepo {
 		return alumnosList;
 	}
 
-	public void update(Titulacion titulacion) {
+	public void update(Alumno alumno) {
 
 		Connection conn = manager.open(JDBC_URL);
 		PreparedStatement statement = null;
 
 		try {
-			statement = conn.prepareStatement("UPDATE TITULACIONES SET TITULO = ? WHERE ID = ?");
-			statement.setString(1, titulacion.getName());
-			statement.setInt(2, titulacion.getId());
+			statement = conn.prepareStatement("UPDATE ALUMNOS SET NOMBRE = ?, EDAD = ?, TITULACION = ? WHERE ID = ?");
+			statement.setString(1, alumno.getName());
+			statement.setInt(2, alumno.getEdad());
+			statement.setInt(3, alumno.getTitulacion().getId());
+			statement.setInt(4, alumno.getId());
 
 			statement.execute();
 		} catch (SQLException e) {
@@ -114,5 +116,38 @@ public class AlumnosRepo {
 			manager.close(statement);
 			manager.close(conn);
 		}
+	}
+
+	public Alumno findById(Integer id) {
+
+		Connection conn = manager.open(JDBC_URL);
+		PreparedStatement statement = null;
+		Alumno alumno = new Alumno();
+
+		try {
+			statement = conn.prepareStatement("SELECT * FROM ALUMNOS");
+			ResultSet rs = statement.executeQuery();
+
+			TitulacionRepo titulacionRepo = new TitulacionRepo();
+
+			while (rs.next()) {
+
+				alumno.setId(rs.getInt("id"));
+				alumno.setName(rs.getString("nombre"));
+				alumno.setEdad(rs.getInt("edad"));
+				alumno.setTitulacion(titulacionRepo.findById(rs.getInt("titulacion")));
+			}
+
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+
+			manager.close(statement);
+			manager.close(conn);
+		}
+
+		return alumno;
 	}
 }

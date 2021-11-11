@@ -51,7 +51,12 @@
 				<td>${alumno.titulacion.name}</td>
 
 				<td>
-					<form method="post" action="delete-user">
+					<form method="post" action="edit-alumno" style="float: left; margin-right: 10px">
+						<input type="hidden" name="id" value="${alumno.id}">
+						<button type="submit" class="btn btn-primary btn-sm m-0"><i class="fas fa-edit"></i></button>
+					</form>
+
+					<form method="post" action="delete-alumno" style="float: left;">
 						<input type="hidden" name="id" value="${alumno.id}">
 						<button type="submit" class="btn btn-danger btn-sm m-0"><i class="fas fa-times"></i></button>
 					</form>

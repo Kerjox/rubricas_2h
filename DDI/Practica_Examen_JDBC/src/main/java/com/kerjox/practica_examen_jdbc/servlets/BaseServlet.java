@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 public abstract class BaseServlet extends HttpServlet {
 
@@ -27,6 +26,11 @@ public abstract class BaseServlet extends HttpServlet {
 		Titulacion t = new Titulacion();
 
 		t.setId(Integer.valueOf(req.getParameter("titulacion")));
+
+		if (req.getParameter("id") != null) {
+
+			a.setId(Integer.valueOf(req.getParameter("id")));
+		}
 
 		a.setName(req.getParameter("name"));
 		a.setEdad(Integer.valueOf(req.getParameter("age")));
