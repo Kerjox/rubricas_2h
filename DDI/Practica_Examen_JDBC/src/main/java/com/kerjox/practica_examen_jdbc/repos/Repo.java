@@ -1,8 +1,5 @@
 package com.kerjox.practica_examen_jdbc.repos;
 
-import com.kerjox.practica_examen_jdbc.connection.AbstractConnection;
-import com.kerjox.practica_examen_jdbc.connection.H2Connection;
-
 import java.util.List;
 
 public interface Repo<T> {

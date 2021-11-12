@@ -2,6 +2,7 @@ package com.kerjox.practica_examen_jdbc.repos;
 
 import com.kerjox.practica_examen_jdbc.connection.AbstractConnection;
 import com.kerjox.practica_examen_jdbc.connection.H2Connection;
+import com.kerjox.practica_examen_jdbc.entities.Alumno;
 import com.kerjox.practica_examen_jdbc.entities.Titulacion;
 
 import java.sql.Connection;
@@ -46,13 +47,14 @@ public class TitulacionRepo implements Repo<Titulacion> {
 		try {
 			statement = conn.prepareStatement("SELECT * FROM TITULACIONES");
 			ResultSet rs = statement.executeQuery();
+			Repo<Alumno> alumnoRepo = new AlumnosRepo();
 
 			while (rs.next()) {
+
 
 				Titulacion t = new Titulacion();
 				t.setId(rs.getInt("id"));
 				t.setName(rs.getString("titulo"));
-
 				titulacion.add(t);
 			}
 

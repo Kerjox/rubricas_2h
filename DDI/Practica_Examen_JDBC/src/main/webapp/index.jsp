@@ -10,6 +10,7 @@
 	<a href="insertTitulacion.jsp">Insertar Titulación</a>
 	<a href="/form/alumno/insert">Insertar Alumno</a>
 	<a href="/alumno/list">List Alumnos</a>
+	<a href="/titulacion/list">List Titulaciones</a>
 
 </div>
 </body>

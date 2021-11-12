@@ -34,7 +34,7 @@
 
 	<servlet>
 		<servlet-name>listAlumnosServlet</servlet-name>
-		<servlet-class>com.kerjox.practica_examen_jdbc.servlets.ListAlumnosServlet</servlet-class>
+		<servlet-class>com.kerjox.practica_examen_jdbc.servlets.ListAlumnosServletDao</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>listAlumnosServlet</servlet-name>
@@ -66,6 +66,24 @@
 	<servlet-mapping>
 		<servlet-name>deleteAlumnoServlet</servlet-name>
 		<url-pattern>/alumno/delete</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>listTitulacionesServletDao</servlet-name>
+		<servlet-class>com.kerjox.practica_examen_jdbc.servlets.ListTitulacionesServletDao</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>listTitulacionesServletDao</servlet-name>
+		<url-pattern>/titulacion/list</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>deleteTitulacionServlet</servlet-name>
+		<servlet-class>com.kerjox.practica_examen_jdbc.servlets.DeleteTitulacionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteTitulacionServlet</servlet-name>
+		<url-pattern>/titulacion/delete</url-pattern>
 	</servlet-mapping>
 
 </web-app>

@@ -3,6 +3,7 @@ package com.kerjox.practica_examen_jdbc.repos;
 import com.kerjox.practica_examen_jdbc.connection.AbstractConnection;
 import com.kerjox.practica_examen_jdbc.connection.H2Connection;
 import com.kerjox.practica_examen_jdbc.entities.Alumno;
+import com.kerjox.practica_examen_jdbc.entities.Titulacion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,7 +51,7 @@ public class AlumnosRepo implements Repo<Alumno> {
 			statement = conn.prepareStatement("SELECT * FROM ALUMNOS");
 			ResultSet rs = statement.executeQuery();
 
-			TitulacionRepo titulacionRepo = new TitulacionRepo();
+			Repo<Titulacion> titulacionRepo = new TitulacionRepo();
 
 			while (rs.next()) {
 
@@ -132,7 +133,7 @@ public class AlumnosRepo implements Repo<Alumno> {
 			statement.setInt(1, id);
 			ResultSet rs = statement.executeQuery();
 
-			TitulacionRepo titulacionRepo = new TitulacionRepo();
+			Repo<Titulacion> titulacionRepo = new TitulacionRepo();
 
 			while (rs.next()) {
 
@@ -153,5 +154,41 @@ public class AlumnosRepo implements Repo<Alumno> {
 		}
 
 		return alumno;
+	}
+
+	public List<Alumno> findByTitulacion(Integer idTitulacion) {
+
+		Connection conn = manager.open(JDBC_URL);
+		PreparedStatement statement = null;
+		List<Alumno> alumnosList = new ArrayList<>();
+
+		try {
+			statement = conn.prepareStatement("SELECT * FROM ALUMNOS WHERE TITULACION = ?");
+			statement.setInt(1, idTitulacion);
+			ResultSet rs = statement.executeQuery();
+
+			Repo<Titulacion> titulacionRepo = new TitulacionRepo();
+
+			while (rs.next()) {
+
+				Alumno a = new Alumno();
+				a.setId(rs.getInt("id"));
+				a.setName(rs.getString("nombre"));
+				a.setEdad(rs.getInt("edad"));
+				a.setTitulacion(titulacionRepo.findById(idTitulacion));
+				alumnosList.add(a);
+			}
+
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+
+			manager.close(statement);
+			manager.close(conn);
+		}
+
+		return alumnosList;
 	}
 }
