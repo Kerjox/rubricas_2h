@@ -13,3 +13,17 @@ class Session(models.Model):
     duration = fields.Integer('Duration')
     seats = fields.Integer('Seats')
     course_id = fields.Many2one('aca.courses', string='Course')
+    user_id = fields.Many2one('aca.users', string='Responsable User')
+    instructor_id = fields.Many2one('aca.instructors', string='Instructor')
+
+
+class User(models.Model):
+    _name = 'aca.users'
+    name = fields.Char('Name')
+    session_id = fields.One2many('aca.sessions', 'user_id', string='Session')
+
+
+class Instructor(models.Model):
+    _name = 'aca.instructors'
+    name = fields.Char('Name')
+    session_id = fields.One2many('aca.sessions', 'instructor_id', string='Session')
