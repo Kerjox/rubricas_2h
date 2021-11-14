@@ -25,6 +25,7 @@
 				<!-- Add your fields here -->
 				<field name="name"/>
 				<field name="description"/>
+				<field name="session_id"/>
 			</tree>
 		</field>
 	</record>
@@ -41,7 +42,7 @@
 							<separator string="Grupo 1" colspan="2"/>
 							<field name="name"/>
 							<field name="description"/>
-
+							<field name="session_id"/>
 						</group>
 						<group colspan="2" col="2">
 							<separator string="Grupo 2" colspan="2"/>
@@ -68,6 +69,7 @@
 				<!-- Add your fields here -->
 				<field name="name"/>
 				<field name="description"/>
+				<field name="session_id"/>
 			</search>
 		</field>
 	</record>
@@ -100,6 +102,7 @@
 						<field name="start_date"/>
 						<field name="duration"/>
 						<field name="seats"/>
+						<field name="course_id"/>
 					</group>
 				</sheet>
 			</form>
@@ -117,6 +120,7 @@
 				<field name="start_date"/>
 				<field name="duration"/>
 				<field name="seats"/>
+				<field name="course_id"/>
 			</tree>
 		</field>
 	</record>
