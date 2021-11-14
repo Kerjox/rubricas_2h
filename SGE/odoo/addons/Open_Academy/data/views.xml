@@ -59,9 +59,73 @@
 		</field>
 	</record>
 
+	<!-- aca.courses search view -->
+	<record id="courses_view_search" model="ir.ui.view">
+		<field name="name">aca.courses.view.search</field>
+		<field name="model">aca.courses</field>
+		<field name="arch" type="xml">
+			<search string="Search Description">
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="description"/>
+			</search>
+		</field>
+	</record>
+
+	<!-- aca.sessions action window -->
+	<record id="sessions_action" model="ir.actions.act_window">
+		<field name="name">Sessions</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">aca.sessions</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+			</p><p>
+				<!-- More details about what a user can do with this object will be OK --> 
+			</p>
+		</field>
+	</record>
+
+	<!-- aca.sessions form view -->
+	<record id="sessions_view_form" model="ir.ui.view">
+		<field name="name">aca.sessions.view.form</field>
+		<field name="model">aca.sessions</field>
+		<field name="arch" type="xml">
+			<form string="Sessions">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="start_date"/>
+						<field name="duration"/>
+						<field name="seats"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- aca.sessions tree view -->
+	<record id="sessions_view_tree" model="ir.ui.view">
+		<field name="name">Sessions</field>
+		<field name="model">aca.sessions</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="start_date"/>
+				<field name="duration"/>
+				<field name="seats"/>
+			</tree>
+		</field>
+	</record>
+
 
 	<!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
 	<menuitem id="academy_menu_root" name="Academy"/>
-	<!-- This Menu Item must have a parent and an action -->
-	<menuitem id="courses_menu_act" name="Courses" parent="academy_menu_root" action="course_action"/>
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="courses_menu_act" name="Courses" parent="academy_menu_root" action="course_action"/>
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="sessions_menu_act" name="Sessions" parent="academy_menu_root" action="sessions_action"/>
 </odoo>
