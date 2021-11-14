@@ -15,7 +15,7 @@ class Session(models.Model):
     course_id = fields.Many2one('aca.courses', string='Course')
     user_id = fields.Many2one('aca.users', string='Responsable User')
     instructor_id = fields.Many2one('aca.instructors', string='Instructor')
-
+    attendees_ids = fields.Many2many('aca.attendees', 'session_attendees_PK', 'attendees_id', 'session_id', string='Asistants')
 
 class User(models.Model):
     _name = 'aca.users'
@@ -27,3 +27,8 @@ class Instructor(models.Model):
     _name = 'aca.instructors'
     name = fields.Char('Name')
     session_id = fields.One2many('aca.sessions', 'instructor_id', string='Session')
+
+class Attendees(models.Model):
+    _name = 'aca.attendees'
+    name = fields.Char('Name')
+    session_ids = fields.Many2many('aca.sessions', 'session_attendees_PK', 'session_id', 'attendees_id', string='Session')

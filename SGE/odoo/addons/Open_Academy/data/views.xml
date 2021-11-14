@@ -105,6 +105,7 @@
 						<field name="course_id"/>
 						<field name="user_id"/>
 						<field name="instructor_id"/>
+						<field name="attendees_ids"/>
 					</group>
 				</sheet>
 			</form>
@@ -125,6 +126,7 @@
 				<field name="course_id"/>
 				<field name="user_id"/>
 				<field name="instructor_id"/>
+				<field name="attendees_ids"/>
 			</tree>
 		</field>
 	</record>
