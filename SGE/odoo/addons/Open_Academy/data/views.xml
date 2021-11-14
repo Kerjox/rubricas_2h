@@ -104,8 +104,7 @@
 						<field name="seats"/>
 						<field name="course_id"/>
 						<field name="user_id"/>
-						<field name="instructor_id"/>
-						<field name="attendees_ids"/>
+						<field name="partner_ids"/>
 					</group>
 				</sheet>
 			</form>
@@ -125,12 +124,83 @@
 				<field name="seats"/>
 				<field name="course_id"/>
 				<field name="user_id"/>
-				<field name="instructor_id"/>
-				<field name="attendees_ids"/>
+				<field name="partner_ids"/>
 			</tree>
 		</field>
 	</record>
 
+	<!-- aca.partner action window -->
+	<record id="partner_action" model="ir.actions.act_window">
+		<field name="name">Partners</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">aca.partners</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+			</p><p>
+				<!-- More details about what a user can do with this object will be OK --> 
+			</p>
+		</field>
+	</record>
+
+	<!-- aca.partner form view -->
+	<record id="partner_view_form" model="ir.ui.view">
+		<field name="name">Parners</field>
+		<field name="model">aca.partners</field>
+		<field name="arch" type="xml">
+			<form string="Partner">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="session_ids"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- aca.partner tree view -->
+	<record id="model_name_view_tree" model="ir.ui.view">
+		<field name="name">Partners</field>
+		<field name="model">aca.partners</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="session_ids"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- aca.partner inherit form view -->
+	<record id="view_iaca_partner_view_form1" model="ir.ui.view">
+		<field name="name">aca.partner.inherit.view.form</field>
+		<field name="model">aca.partners</field>
+		<field name="inherit_id" ref="partner_view_form"/>
+		<field name="arch" type="xml">
+			<!-- Add your xpath here -->
+			<xpath expr="//field[@name='name']" position="after">
+				<!-- Add your fields here -->
+				<field name="instructor"/>
+			</xpath>
+		</field>
+	</record>
+
+	<!-- aca.partner inherit tree view -->
+	<record id="aca_partner_view_tree1" model="ir.ui.view">
+		<field name="name">aca.partner.inherit.view.tree</field>
+		<field name="model">aca.partners</field>
+		<field name="inherit_id" ref="model_name_view_tree"/>
+		<field name="arch" type="xml">
+			<!-- Add your xpath here -->
+			<xpath expr="//field[@name='name']" position="after">
+				<!-- Add your fields here -->
+				<field name="instructor"/>
+			</xpath>
+		</field>
+	</record>
 
 	<!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
 	<menuitem id="academy_menu_root" name="Academy"/>
@@ -138,4 +208,6 @@
 		<menuitem id="courses_menu_act" name="Courses" parent="academy_menu_root" action="course_action"/>
 		<!-- This Menu Item must have a parent and an action -->
 		<menuitem id="sessions_menu_act" name="Sessions" parent="academy_menu_root" action="sessions_action"/>
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="partners_menu_act" name="Paerners" parent="academy_menu_root" action="partner_action"/>
 </odoo>

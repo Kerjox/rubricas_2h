@@ -14,8 +14,7 @@ class Session(models.Model):
     seats = fields.Integer('Seats')
     course_id = fields.Many2one('aca.courses', string='Course')
     user_id = fields.Many2one('aca.users', string='Responsable User')
-    instructor_id = fields.Many2one('aca.instructors', string='Instructor')
-    attendees_ids = fields.Many2many('aca.attendees', 'session_attendees_PK', 'attendees_id', 'session_id', string='Asistants')
+    partner_ids = fields.Many2many('aca.partners', 'session_partner_PK', 'partner_id', 'session_id', string='Partners')
 
 class User(models.Model):
     _name = 'aca.users'
@@ -23,12 +22,12 @@ class User(models.Model):
     session_id = fields.One2many('aca.sessions', 'user_id', string='Session')
 
 
-class Instructor(models.Model):
-    _name = 'aca.instructors'
+class Partner(models.Model):
+    _name = 'aca.partners'
     name = fields.Char('Name')
-    session_id = fields.One2many('aca.sessions', 'instructor_id', string='Session')
+    session_ids = fields.Many2many('aca.sessions', 'session_partner_PK', 'session_id', 'partner_id', string='Sessions')
 
-class Attendees(models.Model):
-    _name = 'aca.attendees'
-    name = fields.Char('Name')
-    session_ids = fields.Many2many('aca.sessions', 'session_attendees_PK', 'session_id', 'attendees_id', string='Session')
+
+class Instructor(models.Model):
+    _inherit = 'aca.partners'
+    instructor = fields.Boolean('Instructor')
