@@ -8,6 +8,14 @@
     'description': 'Kerjox Space Industries addon',
     'website': '',
     'depends': ['base'],
-    'data': ['data/views.xml'],
+    'data': [ 
+        'data/ships.xml',
+        'data/concesionarios.xml',
+        'data/space_ports.xml',
+        'data/planets.xml',
+        'data/users.xml',
+        'data/systems.xml',
+        'data/menu.xml'
+    ],
     #'demo': ['demo.xml']
 }

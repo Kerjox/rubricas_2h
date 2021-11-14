@@ -89,5 +89,5 @@ class Systems(models.Model):
     _name = 'ksi.systems'
     _description = 'Sistemas planetarios'
     name = fields.Char('Nombre', required=True)
-    type = fields.Char('Tipo')
+    type = fields.Selection([('1', 'Comercio'), ('2', 'Minero'), ('3', 'Colonialista')], 'Tipo')
     planets_id = fields.One2many('ksi.planets', 'system_id', string='Planetas')

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="ships_list_action" model="ir.actions.act_window">
+		<field name="name">Ships</field>
+		<field name="res_model">ksi.ships</field>
+		<field name="view_mode">tree,form,calendar</field>
+	</record>
+
+	<!-- Ships form view -->
+	<record id="ships_view_form" model="ir.ui.view">
+		<field name="name">ships.view.form</field>
+		<field name="model">ksi.ships</field>
+		<field name="arch" type="xml">
+			<form string="Ships">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="model"/>
+						<field name="manufacturer"/>
+						<field name="manufacture_date"/>
+						<field name="space_cargo_slot"/>
+						<field name="cargo_slots"/>
+						<field name="cargo_space"/>
+						<field name="stock"/>
+						<field name="concesionario_id"/>
+						<field name="user_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- Ships tree view -->
+	<record id="ships_view_tree" model="ir.ui.view">
+		<field name="name">ships.view.tree</field>
+		<field name="model">ksi.ships</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="model"/>
+				<field name="manufacturer"/>
+				<field name="manufacture_date"/>
+				<field name="space_cargo_slot"/>
+				<field name="cargo_slots"/>
+				<field name="cargo_space"/>
+				<field name="stock"/>
+				<field name="concesionario_id"/>
+				<field name="user_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Ships calendar view -->
+	<record id="ksi_view_calendar" model="ir.ui.view">
+		<field name="name">ships.view.calendar</field>
+		<field name="model">ksi.ships</field>
+		<field name="arch" type="xml">
+			<calendar string="Calendar Description" date_start="manufacture_date">
+				<!-- Add your fields here -->
+				<field name="manufacture_date"/>
+			</calendar>
+		</field>
+	</record>
+
+	<!-- Ships search view -->
+	<record id="ships_view_search" model="ir.ui.view">
+		<field name="name">ships.view.search</field>
+		<field name="model">ksi.ships</field>
+		<field name="arch" type="xml">
+			<search string="Nave">
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<group string="Group By">
+					<filter name="group_by_concesionario" string="Concesionario"
+                context="{'group_by': 'concesionario_id'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+</odoo>

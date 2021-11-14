@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <menuitem name="Kerjox Space Industries" id="ksi_root_menu"/>
+
+		<!-- This Menu Item must have a parent and an action -->
+		<menuitem id="users_menu_act" name="Users" parent="ksi_root_menu" action="users_list_action"/>
+		<menuitem name="Ships" id="ships_menu" parent="ksi_root_menu"/>
+			<menuitem name="Naves" id="ships" parent="ships_menu" action="ships_list_action"/>
+			<menuitem name="Usuario" id="ships_users" parent="ships_menu" action="ships_list_action"/>
+			<menuitem name="Concesionarios" id="ships_concesionarios" parent="ships_menu" action="ships_list_action"/>
+
+
+		<menuitem name="Tiendas" id="inmuebles_menu" parent="ksi_root_menu"/>
+
+			<menuitem name="Concesionarios" id="ksi_shops" parent="inmuebles_menu"/>
+			
+				<menuitem name="Listado" id="ksi_concesionarios" parent="ksi_shops" action="concesionarios_list_action"/>
+
+		<menuitem name="Puertos espaciales" id="spaceports_menu" parent="ksi_root_menu"/>
+
+			<menuitem name="Listado" id="ksi_spaceports" parent="spaceports_menu" action="spaceports_action"/>
+
+		<menuitem name="Planetas" id="planets_menu" parent="ksi_root_menu"/>
+
+			<menuitem name="Listado" id="ksi_planets" parent="planets_menu" action="planetas_list_action"/>
+
+		<menuitem name="Sistemas Planetarios" id="systems_menu" parent="ksi_root_menu"/>
+
+			<menuitem name="Listado" id="ksi_systems" parent="systems_menu" action="systems_list_action"/>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Spaceports action window -->
+	<record id="spaceports_action" model="ir.actions.act_window">
+		<field name="name">Puertos espaciales</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">ksi.space.ports</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+				<!-- Add Text Here -->
+				Puertos espaciales
+			</p><p>
+				<!-- More details about what a user can do with this object will be OK -->
+				Puedes hacer cosas aqui
+			</p>
+		</field>
+	</record>
+
+	<!-- Spaceports form view -->
+	<record id="space_ports_view_form" model="ir.ui.view">
+		<field name="name">space.ports.view.form</field>
+		<field name="model">ksi.space.ports</field>
+		<field name="arch" type="xml">
+			<form string="Puertos espaciales">
+				<sheet>
+					<group>
+						<!-- Add your fields here -->
+						<field name="name"/>
+						<field name="orbita"/>
+						<field name="concesionarios_id"/>
+						<field name="planet_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- spaceports tree view -->
+	<record id="space_ports_view_tree" model="ir.ui.view">
+		<field name="name">space.ports.view.tree</field>
+		<field name="model">ksi.space.ports</field>
+		<field name="arch" type="xml">
+			<tree>
+				<!-- Add your fields here -->
+				<field name="name"/>
+				<field name="orbita"/>
+				<field name="concesionarios_id"/>
+				<field name="planet_id"/>
+			</tree>
+		</field>
+	</record>
+</odoo>
