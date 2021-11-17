@@ -50,10 +50,10 @@
 							<field name="description"/>
 						</group>
 						<notebook colspan="4">
-            <page string="Description">
-                <field name="description" nolabel="1"/>
-            </page>
-        </notebook>
+						<page string="Description">
+							<field name="description" nolabel="1"/>
+						</page>
+					</notebook>
 					</group>
 				</sheet>
 			</form>
@@ -99,9 +99,11 @@
 					<group>
 						<!-- Add your fields here -->
 						<field name="name"/>
+						<field name="active"/>
 						<field name="start_date"/>
 						<field name="duration"/>
-						<field name="seats"/>
+						<field name="seats_available"/>
+						<field name="percentage_seats" widget='progressbar'/>
 						<field name="course_id"/>
 						<field name="user_id"/>
 						<field name="partner_ids"/>
@@ -119,9 +121,11 @@
 			<tree>
 				<!-- Add your fields here -->
 				<field name="name"/>
+				<field name="active"/>
 				<field name="start_date"/>
 				<field name="duration"/>
-				<field name="seats"/>
+				<field name="seats_available"/>
+				<field name="percentage_seats" widget='percentpie'/>
 				<field name="course_id"/>
 				<field name="user_id"/>
 				<field name="partner_ids"/>
@@ -163,7 +167,8 @@
 
 	<!-- aca.partner tree view -->
 	<record id="model_name_view_tree" model="ir.ui.view">
-		<field name="name">Partners</field>
+		<field name="name">Partne @api.depends('seats_available', 'partner_id')
+    def _compute_rs</field>
 		<field name="model">aca.partners</field>
 		<field name="arch" type="xml">
 			<tree>
