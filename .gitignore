@@ -3,3 +3,4 @@
 *.idea
 *target
 /DDI/Practica_Examen_JDBC/Practica_Examen_JDBC.iml
+*/test.mv.db

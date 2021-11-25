@@ -7,7 +7,7 @@ class Course(models.Model):
     description = fields.Text('Description')
     session_id = fields.One2many('aca.sessions', 'course_id', string='Session')
 
-    @api.constrains('name', description)
+    @api.constrains('name', 'description')
     def _check_something(self):
         for record in self:
             if record.name == record.description:
