@@ -9,7 +9,8 @@
     'website': '',
     'depends': ['base'],
     'data': [ 
-        'data/ships.xml',
+        'data/concesionarios_ships.xml',
+        'data/user_ships.xml',
         'data/concesionarios.xml',
         'data/space_ports.xml',
         'data/planets.xml',

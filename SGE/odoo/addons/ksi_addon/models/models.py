@@ -7,7 +7,7 @@ class User(models.Model):
     _name = 'ksi.users'
     name = fields.Char('Nombre')
     age = fields.Integer('Edad')
-    ship_id = fields.One2many('ksi.ships', 'user_id', string='Nave')
+    ship_id = fields.One2many('ksi.users.ships', 'user_id', string='Nave')
 
     # Validation Error
     @api.constrains('age')
@@ -16,7 +16,7 @@ class User(models.Model):
             if record.age > 100:
                 raise ValidationError("OMG: %s years WTF!" % record.age)
     # all records passed the test, don't return anything
-class Ships(models.Model):
+class Ship(models.Model):
     _name = 'ksi.ships'
     name = fields.Char('Nombre')
     model = fields.Char('Modelo')
@@ -48,11 +48,14 @@ class Ships(models.Model):
 
 class ConcesionariosShips(models.Model):
     _inherit = 'ksi.ships'
+    _name = 'ksi.concesionarios.ships'
     stock = fields.Integer('Cantodad')
     concesionario_id = fields.Many2one('ksi.concesionarios', string='Concesionario')
 
 class UserShips(models.Model):
     _inherit = 'ksi.ships'
+    _name = 'ksi.users.ships'
+    secure = fields.Boolean('Secure')
     user_id = fields.Many2one('ksi.users', string='Usuario')
 
 
@@ -60,7 +63,7 @@ class Concesionarios(models.Model):
     _name = 'ksi.concesionarios'
     _description = 'Concesionarios'
     name = fields.Char('Nombre', required=True)
-    ships_id = fields.One2many('ksi.ships', 'concesionario_id', string='Naves')
+    ships_id = fields.One2many('ksi.concesionarios.ships', 'concesionario_id', string='Naves')
     spaceport_id = fields.Many2one('ksi.space.ports', string='Space Port')
 
 
