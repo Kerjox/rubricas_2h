@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- examen.portatil action window -->
+    <record id="portatiles_action" model="ir.actions.act_window">
+        <field name="name">Portatiles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">examen.portatil</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
+
+    <!-- examen.portatil form view -->
+    <record id="portatil_view_form" model="ir.ui.view">
+        <field name="name">Portatil</field>
+        <field name="model">examen.portatil</field>
+        <field name="arch" type="xml">
+            <form string="Portatil">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="marca"/>
+                        <field name="cpu"/>
+                        <field name="ram_id"/>
+                        <field name="hdd_id"/>
+                        <field name="fecha_compra"/>
+                        <field name="usage"/>
+                        <field name="precio"/>
+                        <field name="observaciones"/>
+                        <field name="total_ram"/>
+                        <field name="total_hdd"/>
+                        <field name="ofertas_id"/>
+                        <field name="vendido"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- examen.portatil tree view -->
+    <record id="portatil_view_tree" model="ir.ui.view">
+        <field name="name">Portatiles</field>
+        <field name="model">examen.portatil</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="marca"/>
+                <field name="cpu"/>
+                <field name="ram_id"/>
+                <field name="hdd_id"/>
+                <field name="fecha_compra"/>
+                <field name="usage"/>
+                <field name="precio"/>
+                <field name="observaciones"/>
+                <field name="total_ram"/>
+                <field name="total_hdd"/>
+                <field name="ofertas_id"/>
+                <field name="vendido"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- examen.portatil calendar view -->
+    <record id="model_name_view_calendar" model="ir.ui.view">
+        <field name="name">Calendario Portatiles</field>
+        <field name="model">examen.portatil</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendar Description" date_start="fecha_compra">
+                <!-- Add your fields here -->
+                <field name="fecha_compra"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- examen.portatil search view -->
+    <record id="model_name_view_search" model="ir.ui.view">
+        <field name="name">examen.portatil.view.search</field>
+        <field name="model">examen.portatil</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="marca"/>
+                <field name="total_ram"/>
+                <field name="total_hdd"/>
+                <field name="cpu"/>
+                <group string="Group By">
+					<filter name="group_by_vendido" string="Vendido"
+                context="{'group_by': 'vendido'}"/>
+				</group>
+            </search>
+        </field>
+    </record>
+</odoo>

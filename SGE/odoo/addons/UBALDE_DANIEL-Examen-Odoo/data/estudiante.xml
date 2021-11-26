@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- examen.estudiante action window -->
+    <record id="examen_estudiante_action" model="ir.actions.act_window">
+        <field name="name">Estudiantes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">examen.estudiante</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
+
+    <!-- examen.estudiante form view -->
+    <record id="examen_estudiante_view_form" model="ir.ui.view">
+        <field name="name">examen.estudiante.view.form</field>
+        <field name="model">examen.estudiante</field>
+        <field name="arch" type="xml">
+            <form string="Estudiante">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="direction"/>
+                        <field name="telefono"/>
+                        <field name="portatiles_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- examen.estudiante tree view -->
+    <record id="examen_estudiante_view_tree" model="ir.ui.view">
+        <field name="name">examen.estudiante.view.tree</field>
+        <field name="model">examen.estudiante</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="direction"/>
+                <field name="telefono"/>
+                <field name="portatiles_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

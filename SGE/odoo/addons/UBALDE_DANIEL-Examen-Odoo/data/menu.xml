@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="examen_menu_root" name="ExamenUbalde"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="estudiantes_menu_act" name="Estudiantes" parent="examen_menu_root" action="examen_estudiante_action"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="portatiles_menu_act" name="Portatiles" parent="examen_menu_root" action="portatiles_action"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="ram_menu_act" name="RAM" parent="examen_menu_root" action="ram_action"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="hdd_menu_act" name="HDD" parent="examen_menu_root" action="hdd_action"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="comprador_menu_act" name="Compradores" parent="examen_menu_root" action="comprador_action"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="oferta_menu_act" name="Oferta" parent="examen_menu_root" action="oferta_action"/>
+</odoo>

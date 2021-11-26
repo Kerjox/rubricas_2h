@@ -8,6 +8,5 @@
     'description': 'Examen',
     'website': '',
     'depends': ['base'],
-    'data': ['data/views.xml'],
-    #'demo': ['demo.xml']
+    'data': ['data/estudiante.xml', 'data/portatil.xml', 'data/ram.xml', 'data/hdd.xml', 'data/comprador.xml', 'data/oferta.xml', 'data/menu.xml']
 }

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- examen.oferta action window -->
+    <record id="oferta_action" model="ir.actions.act_window">
+        <field name="name">examen.oferta.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">examen.oferta</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
+
+    <!-- examen.oferta form view -->
+    <record id="oferta_view_form" model="ir.ui.view">
+        <field name="name">examen.oferta.view.form</field>
+        <field name="model">examen.oferta</field>
+        <field name="arch" type="xml">
+            <form string="Oferta">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="portatil_id"/>
+                        <field name="aceptada"/>
+                        <field name="comprador_id"/>
+                        <field name="observaciones"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- examen.oferta tree view -->
+    <record id="oferta_view_tree" model="ir.ui.view">
+        <field name="name">examen.oferta.view.tree</field>
+        <field name="model">examen.oferta</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="portatil_id"/>
+                <field name="aceptada"/>
+                <field name="comprador_id"/>
+                <field name="observaciones"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

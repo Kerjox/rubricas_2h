@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- examen.comprador action window -->
+    <record id="comprador_action" model="ir.actions.act_window">
+        <field name="name">examen.comprador.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">examen.comprador</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
+
+    <!-- examen.comprador form view -->
+    <record id="comprador_view_form" model="ir.ui.view">
+        <field name="name">examen.comprador.view.form</field>
+        <field name="model">examen.comprador</field>
+        <field name="arch" type="xml">
+            <form string="Comprador">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="direction"/>
+                        <field name="telefono"/>
+                        <field name="portatiles_id"/>
+                        <field name="ofertas_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- examen.comprador tree view -->
+    <record id="comprador_view_tree" model="ir.ui.view">
+        <field name="name">examen.comprador.view.tree</field>
+        <field name="model">examen.comprador</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="direction"/>
+                <field name="telefono"/>
+                <field name="portatiles_id"/>
+                <field name="ofertas_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
