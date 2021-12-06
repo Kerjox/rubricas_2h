@@ -10,7 +10,7 @@ public class AppMain {
 
 	public static void main(String[] args) {
 
-		Department deptObj = (Department) getAppContext().getBean("department");
+		Department deptObj = getAppContext().getBean("department", Department.class);
 		deptObj.showResult();
 	}
 }

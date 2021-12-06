@@ -15,7 +15,7 @@ public class AppMain {
 
 	// This Is The Main Method And In Here We Are Retrieving The Spring Bean via 'getBean()' Method
 	public static void main(String[] args) {
-		HelloWorld helloObj = (HelloWorld) getAppContext().getBean("helloWorld");
+		HelloWorld helloObj = getAppContext().getBean("helloWorld", HelloWorld.class);
 		System.out.println(helloObj.getUsername());
 	}
 }
