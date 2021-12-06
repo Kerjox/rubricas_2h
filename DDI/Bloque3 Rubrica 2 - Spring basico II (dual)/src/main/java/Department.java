@@ -15,30 +15,6 @@ public class Department {
 		this.employee = dept_employee;
 	}
 
-	public int getDepartmentId() {
-		return departmentId;
-	}
-
-	public void setDepartmentId(int departmentId) {
-		this.departmentId = departmentId;
-	}
-
-	public String getDepartmentName() {
-		return departmentName;
-	}
-
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
-
-	public Map<String, String> getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Map<String, String> employee) {
-		this.employee = employee;
-	}
-
 	public void showResult() {
 		System.out.println("Department Details? Id= " + departmentId + ", Name= " + departmentName);
 		System.out.println("\nEmployee Details?\n");
