@@ -1,4 +1,4 @@
-public class HelloWorld {
+public class GoodByeWorld {
 
 	private String message;
 
@@ -11,7 +11,6 @@ public class HelloWorld {
 	}
 
 	public void printMessage() {
-
 		System.out.println(getMessage());
 	}
 }

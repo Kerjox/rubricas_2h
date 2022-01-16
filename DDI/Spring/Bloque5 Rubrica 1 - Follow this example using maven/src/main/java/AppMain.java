@@ -11,7 +11,12 @@ public class AppMain {
 	public static void main(String[] args) {
 
 		ApplicationContext context = getAppContext();
+
 		HelloWorld helloWorld = context.getBean(HelloWorld.class);
-		System.out.println(helloWorld.toString());
+		helloWorld.printMessage();
+
+		GoodByeWorld goodByeWorld = context.getBean(GoodByeWorld.class);
+		goodByeWorld.printMessage();
+
 	}
 }

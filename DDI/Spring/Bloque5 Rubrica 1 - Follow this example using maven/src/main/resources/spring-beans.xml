@@ -5,6 +5,11 @@
 
 	<bean id="helloWorld" class="HelloWorld">
 
-		<property name="message" value="This is the message XD"/>
+		<property name="message" value="Hello world message"/>
+	</bean>
+
+	<bean id="goodByeWorld" class="GoodByeWorld">
+
+		<property name="message" value="Good bye world!"/>
 	</bean>
 </beans>
