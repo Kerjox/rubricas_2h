@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "city.generator.api",
+      "type": "java.lang.String",
+      "description": "Description for city.generator.api."
+    },
+    {
+      "name": "generator.api.maxWords",
+      "type": "java.lang.String",
+      "description": "Description for generator.api.maxWords."
+    }
+  ] }

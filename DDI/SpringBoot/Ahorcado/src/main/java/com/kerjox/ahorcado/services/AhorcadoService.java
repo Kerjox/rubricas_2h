@@ -1,39 +1,58 @@
 package com.kerjox.ahorcado.services;
 
 import com.kerjox.ahorcado.entities.Ahorcado;
+import com.kerjox.ahorcado.levels.Easy;
+import com.kerjox.ahorcado.levels.Level;
+import com.kerjox.ahorcado.utils.WordGenerator;
+import org.springframework.stereotype.Service;
 
-public interface AhorcadoService {
+@Service
+public class AhorcadoService {
 
-	Ahorcado getAhorcado();
+	private Ahorcado ahorcado;
 
-	default void checkLetter(char letter) {
+	private final WordGenerator wordGenerator;
 
-		assert false;
+	private final Level level;
+
+	public AhorcadoService() {
+
+		this.level = new Easy();
+		this.wordGenerator = new WordGenerator();
+		this.ahorcado = new Ahorcado(wordGenerator.getWord(level.getMaxLength()), level.getTries());
+	}
+
+	public void checkLetter(char letter) {
+
 		letter = Character.toUpperCase(letter);
 
 		int i = 0;
-		for (char l : getAhorcado().getWord()) {
+		for (char l : ahorcado.getWord()) {
 
 			if (l == letter) {
 
-				boolean[] wordMask = getAhorcado().getWordMask();
-				wordMask[i] = true;
-
-				getAhorcado().setWordMask(wordMask);
+				ahorcado.setTrueWordMask(i);
 			}
 			i++;
 		}
 	}
 
-	default char[] getWord() {
+	public char[] getWord() {
 
-		assert false;
-		return getAhorcado().getWord();
-	};
+		return ahorcado.getWord();
+	}
 
-	default boolean[] getWordMask() {
+	public boolean[] getWordMask() {
 
-		assert false;
-		return getAhorcado().getWordMask();
-	};
+		return ahorcado.getWordMask();
+	}
+
+	public Ahorcado getAhorcado() {
+
+		return this.ahorcado;
+	}
+
+	public void setAhorcado(Ahorcado ahorcado) {
+		this.ahorcado = ahorcado;
+	}
 }

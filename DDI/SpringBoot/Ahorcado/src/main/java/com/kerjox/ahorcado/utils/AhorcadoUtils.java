@@ -1,11 +1,7 @@
 package com.kerjox.ahorcado.utils;
 
-public class AhorcadoUtils {
 
-	public static String getRandomWord(String[] words) {
-
-		return words[(int) (Math.random() * words.length)];
-	}
+public abstract class AhorcadoUtils {
 
 	public static char[] getAlphabet() {
 

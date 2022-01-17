@@ -3,7 +3,6 @@ package com.kerjox.ahorcado.controllers;
 import com.kerjox.ahorcado.services.AhorcadoService;
 import com.kerjox.ahorcado.utils.AhorcadoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +16,7 @@ import java.util.Arrays;
 public class AhorcadoController {
 
 	@Autowired
-	@Qualifier("ahorcado")
 	AhorcadoService ahorcadoService;
-
-	public AhorcadoService getAhorcadoService() {
-		return ahorcadoService;
-	}
 
 	public void setAhorcadoService(AhorcadoService ahorcadoService) {
 		this.ahorcadoService = ahorcadoService;
