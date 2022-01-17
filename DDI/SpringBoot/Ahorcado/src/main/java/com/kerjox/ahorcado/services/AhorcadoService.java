@@ -4,23 +4,14 @@ import com.kerjox.ahorcado.entities.Ahorcado;
 import com.kerjox.ahorcado.levels.Easy;
 import com.kerjox.ahorcado.levels.Level;
 import com.kerjox.ahorcado.utils.WordGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AhorcadoService {
 
+	@Autowired
 	private Ahorcado ahorcado;
-
-	private final WordGenerator wordGenerator;
-
-	private final Level level;
-
-	public AhorcadoService() {
-
-		this.level = new Easy();
-		this.wordGenerator = new WordGenerator();
-		this.ahorcado = new Ahorcado(wordGenerator.getWord(level.getMaxLength()), level.getTries());
-	}
 
 	public void checkLetter(char letter) {
 
@@ -40,6 +31,11 @@ public class AhorcadoService {
 	public char[] getWord() {
 
 		return ahorcado.getWord();
+	}
+
+	public char[] getWordToShow() {
+
+		return ahorcado.getWordToShow();
 	}
 
 	public boolean[] getWordMask() {

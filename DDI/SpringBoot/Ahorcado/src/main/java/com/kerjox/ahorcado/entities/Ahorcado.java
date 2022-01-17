@@ -1,21 +1,53 @@
 package com.kerjox.ahorcado.entities;
 
 import jdk.jfr.Unsigned;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import javax.management.ConstructorParameters;
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
 
 public class Ahorcado {
 
 	private char[] word;
+	private char[] wordToShow;
 	private boolean[] wordMask;
-
 	@Unsigned
- 	private int tries;
+	private int tries;
 	private List<Character> lettersChecked;
+
+	public Ahorcado(String word, int tries) {
+		word = "Ciudad Real";
+
+		this.tries = tries;
+		this.wordToShow = word.toUpperCase().replaceAll("[^A-Z] ", "").toCharArray();
+		this.wordMask = new boolean[word.length()];
+		this.word = Normalizer.normalize(word, Normalizer.Form.NFD)
+						.toUpperCase()
+						.replaceAll("[^A-Z] ", "")
+						.toCharArray();
+
+		Arrays.fill(this.wordMask, false);
+		markSpacesToTrue();
+	}
+
+	private void markSpacesToTrue() {
+
+		for (int i = 0; i < this.wordMask.length; i++) {
+
+			if (this.word[i] == ' ') {
+
+				this.wordMask[i] = true;
+			}
+		}
+	}
+
+	public char[] getWordToShow() {
+		return wordToShow;
+	}
+
+	public void setWordToShow(char[] wordToShow) {
+		this.wordToShow = wordToShow;
+	}
 
 	public List<Character> getLettersChecked() {
 		return lettersChecked;
@@ -47,15 +79,6 @@ public class Ahorcado {
 
 	public void setWordMask(boolean[] wordMask) {
 		this.wordMask = wordMask;
-	}
-
-	public Ahorcado(String word, int tries) {
-
-		this.tries = tries;
-		this.word = word.toUpperCase().toCharArray();
-		this.wordMask = new boolean[word.length()];
-
-		Arrays.fill(this.wordMask, false);
 	}
 
 	public void setTrueWordMask(int i) {

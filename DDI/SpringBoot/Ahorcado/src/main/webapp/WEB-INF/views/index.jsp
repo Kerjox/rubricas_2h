@@ -19,16 +19,26 @@
 	<div class="position-absolute start-50 translate-middle" style="top: 25%;">
 
 		<jsp:useBean id="ahorcado" scope="request" type="com.kerjox.ahorcado.entities.Ahorcado"/>
-		<c:forEach var="letter" items="${ahorcado.word}" varStatus="i">
+		<c:forEach var="letter" items="${ahorcado.wordToShow}" varStatus="i">
 
-			<c:if test="${ahorcado.wordMask[i.index]}">
-				<div class="btn btn-outline-dark">${ahorcado.word[i.index]}</div>
+			<c:choose>
 
-			</c:if>
+				<c:when test="${!ahorcado.wordMask[i.index]}">
 
-			<c:if test="${!ahorcado.wordMask[i.index]}">
-				<div class="btn btn-outline-dark">_</div>
-			</c:if>
+					<div class="btn btn-outline-dark">_</div>
+				</c:when>
+
+
+				<c:when test="${letter.toString() == ' '}">
+
+					<div class="btn btn-outline-danger invisible">_</div>
+				</c:when>
+
+				<c:otherwise>
+					<div class="btn btn-outline-dark">${letter}</div>
+				</c:otherwise>
+			</c:choose>
+
 		</c:forEach>
 	</div>
 	<div class="position-absolute start-50 translate-middle" style="top: 60%">

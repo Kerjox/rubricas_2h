@@ -9,15 +9,14 @@ import org.springframework.stereotype.Component;
 public class WordGenerator {
 
 	@Value("${city.generator.api}")
-	private String apiUrl = "https://api.generadordni.es/v2/misc/city?results=100";
+	private String apiUrl;
 
 	public void setApiUrl(String apiUrl) {
 		this.apiUrl = apiUrl;
 	}
 
-	public String getWord(Integer maxLength) {
+	public String getWord(int minLength, int maxLength) {
 
-		System.out.println(apiUrl);
 		JSONArray jsonArray = JsonUtils.readJsonFromUrl(apiUrl);
 
 		for (int i = 0; i < jsonArray.length(); i++) {
@@ -29,8 +28,9 @@ public class WordGenerator {
 				e.printStackTrace();
 			}
 			assert word != null;
-			if (word.length() <= maxLength) {
+			if (word.length() >= minLength && word.length() <= maxLength) {
 
+				System.out.println(word);
 				return word;
 			}
 		}

@@ -4,8 +4,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("easy")
-public class Easy implements Level {
+@Profile("medium")
+public class Medium implements Level {
 
 	@Override
 	public int getTries() {
@@ -14,11 +14,11 @@ public class Easy implements Level {
 
 	@Override
 	public int getMaxLength() {
-		return 6;
+		return 7;
 	}
 
 	@Override
 	public int getMinLength() {
-		return 4;
+		return 5;
 	}
 }

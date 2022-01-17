@@ -36,9 +36,10 @@ public class AhorcadoController {
 	@RequestMapping(value = "/checkLetter", params = {"letter"}, method = RequestMethod.GET)
 	public ModelAndView checkLetter(@RequestParam("letter") char letter) {
 
-		System.out.println(letter);
-		System.out.println(Arrays.toString(ahorcadoService.getWordMask()));
 		ahorcadoService.checkLetter(letter);
+		System.out.printf("Letra %s", letter);
+		System.out.println(ahorcadoService.getWord());
+		System.out.println(ahorcadoService.getWordToShow());
 		System.out.println(Arrays.toString(ahorcadoService.getWordMask()));
 
 		ModelAndView modelAndView = new ModelAndView();
