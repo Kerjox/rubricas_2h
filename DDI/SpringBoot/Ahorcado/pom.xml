@@ -46,6 +46,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
+			<version>2.6.2</version>
 		</dependency>
 	</dependencies>
 

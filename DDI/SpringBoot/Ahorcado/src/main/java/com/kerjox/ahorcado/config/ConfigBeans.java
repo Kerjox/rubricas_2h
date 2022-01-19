@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class ConfigBeans {
 
 
@@ -18,9 +18,10 @@ public class ConfigBeans {
 	private WordGenerator wordGenerator;
 
 
+	/*
 	@Bean
 	Ahorcado ahorcado() {
 
-		return new Ahorcado(wordGenerator.getWord(level.getMinLength(), level.getMaxLength()), level.getTries());
-	}
+		return new Ahorcado(wordGenerator.generateNewWord(level.getMinLength(), level.getMaxLength()), level.getTries());
+	}*/
 }

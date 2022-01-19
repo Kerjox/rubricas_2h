@@ -1,11 +1,11 @@
 package com.kerjox.ahorcado.entities;
 
 import jdk.jfr.Unsigned;
+import org.springframework.stereotype.Component;
 
-import java.text.Normalizer;
-import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class Ahorcado {
 
 	private char[] word;
@@ -14,32 +14,6 @@ public class Ahorcado {
 	@Unsigned
 	private int tries;
 	private List<Character> lettersChecked;
-
-	public Ahorcado(String word, int tries) {
-		word = "Ciudad Real";
-
-		this.tries = tries;
-		this.wordToShow = word.toUpperCase().replaceAll("[^A-Z] ", "").toCharArray();
-		this.wordMask = new boolean[word.length()];
-		this.word = Normalizer.normalize(word, Normalizer.Form.NFD)
-						.toUpperCase()
-						.replaceAll("[^A-Z] ", "")
-						.toCharArray();
-
-		Arrays.fill(this.wordMask, false);
-		markSpacesToTrue();
-	}
-
-	private void markSpacesToTrue() {
-
-		for (int i = 0; i < this.wordMask.length; i++) {
-
-			if (this.word[i] == ' ') {
-
-				this.wordMask[i] = true;
-			}
-		}
-	}
 
 	public char[] getWordToShow() {
 		return wordToShow;

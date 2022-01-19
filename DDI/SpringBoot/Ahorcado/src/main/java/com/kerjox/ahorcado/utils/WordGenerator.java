@@ -15,7 +15,7 @@ public class WordGenerator {
 		this.apiUrl = apiUrl;
 	}
 
-	public String getWord(int minLength, int maxLength) {
+	public String generateNewWord(int minLength, int maxLength) {
 
 		JSONArray jsonArray = JsonUtils.readJsonFromUrl(apiUrl);
 

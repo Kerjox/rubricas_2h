@@ -24,13 +24,8 @@ public class AhorcadoController {
 
 	@GetMapping("/")
 	public ModelAndView index() {
-
-		ModelAndView modelAndView = new ModelAndView();
-
-		modelAndView.setViewName("index");
-		modelAndView.addObject("alphabet", AhorcadoUtils.getAlphabet());
-		modelAndView.addObject("ahorcado", ahorcadoService.getAhorcado());
-		return modelAndView;
+		ahorcadoService.initGame();
+		return getIndex();
 	}
 
 	@RequestMapping(value = "/checkLetter", params = {"letter"}, method = RequestMethod.GET)
@@ -42,17 +37,23 @@ public class AhorcadoController {
 		System.out.println(ahorcadoService.getWordToShow());
 		System.out.println(Arrays.toString(ahorcadoService.getWordMask()));
 
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("alphabet", AhorcadoUtils.getAlphabet());
-		modelAndView.setViewName("index");
-		modelAndView.addObject("ahorcado", ahorcadoService.getAhorcado());
-
-		return modelAndView;
+		return getIndex();
 	}
 
 	@GetMapping("/error")
 	public String error() {
 
 		return "error";
+	}
+
+	private ModelAndView getIndex() {
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("consonant", AhorcadoUtils.getAlphabet(false));
+		modelAndView.addObject("vocals", AhorcadoUtils.getVocals());
+		modelAndView.setViewName("index");
+		modelAndView.addObject("ahorcado", ahorcadoService.getAhorcado());
+
+		return modelAndView;
 	}
 }
