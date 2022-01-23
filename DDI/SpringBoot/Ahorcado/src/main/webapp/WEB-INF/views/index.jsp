@@ -36,15 +36,18 @@
 
 				<c:choose>
 
-					<c:when test="${!ahorcado.wordMask[i.index]}">
+					<c:when test="${!ahorcado.lettersChecked.contains(letter)}">
 
-						<div class="btn btn-outline-dark cursor-normal">_</div>
-					</c:when>
+						<c:if test="${letter.toString() == ' '}">
 
+							<div class="btn btn-outline-danger invisible cursor-normal">_</div>
+						</c:if>
 
-					<c:when test="${letter.toString() == ' '}">
+						<c:if test="${letter.toString() != ' '}">
 
-						<div class="btn btn-outline-danger invisible cursor-normal">_</div>
+							<div class="btn btn-outline-dark cursor-normal">_</div>
+						</c:if>
+
 					</c:when>
 
 					<c:when test="${letter.toString() == '-'}">
@@ -63,19 +66,17 @@
 
 	<div class="row justify-content-center bg-black">
 		<div class="col-auto">
-			<c:forEach var="letter" items="${vocals}">
+			<c:forEach var="letter" items="${alphabet}">
 				<div class="d-flex justify-content-center p-1 float-start">
-					<a href="/checkLetter/?letter=${letter}" class="btn btn-primary">${letter}</a>
-				</div>
-			</c:forEach>
-		</div>
-	</div>
+					<c:if test="${!ahorcado.lettersChecked.contains(letter)}">
 
-	<div class="row justify-content-center bg-black">
-		<div class="col-auto">
-			<c:forEach var="letter" items="${consonant}">
-				<div class="d-flex justify-content-center p-1 float-start">
-					<a href="/checkLetter/?letter=${letter}" class="btn btn-primary">${letter}</a>
+						<a href="/checkLetter/?letter=${letter}" class="btn btn-primary">${letter}</a>
+					</c:if>
+
+					<c:if test="${ahorcado.lettersChecked.contains(letter)}">
+
+						<a href="/checkLetter/?letter=${letter}" class="btn btn-primary disabled">${letter}</a>
+					</c:if>
 				</div>
 			</c:forEach>
 		</div>

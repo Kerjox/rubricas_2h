@@ -10,10 +10,18 @@ public class Ahorcado {
 
 	private char[] word;
 	private char[] wordToShow;
-	private boolean[] wordMask;
 	@Unsigned
 	private int tries;
 	private List<Character> lettersChecked;
+	private int wordLetters;
+
+	public int getWordLetters() {
+		return wordLetters;
+	}
+
+	public void setWordLetters(int wordLetters) {
+		this.wordLetters = wordLetters;
+	}
 
 	public char[] getWordToShow() {
 		return wordToShow;
@@ -45,18 +53,5 @@ public class Ahorcado {
 
 	public void setWord(char[] word) {
 		this.word = word;
-	}
-
-	public boolean[] getWordMask() {
-		return wordMask;
-	}
-
-	public void setWordMask(boolean[] wordMask) {
-		this.wordMask = wordMask;
-	}
-
-	public void setTrueWordMask(int i) {
-
-		this.wordMask[i] = true;
 	}
 }

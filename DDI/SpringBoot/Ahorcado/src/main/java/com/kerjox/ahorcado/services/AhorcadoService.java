@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.Normalizer;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.stream.Collectors;
 
 @Service
 public class AhorcadoService {
@@ -23,32 +26,25 @@ public class AhorcadoService {
 
 	public void checkLetter(char letter) {
 
+		if (ahorcado.getLettersChecked() == null) {
+			initGame();
+		}
 		letter = Character.toUpperCase(letter);
 
 		int i = 0;
 		for (char l : ahorcado.getWord()) {
 
-			if (l == letter) {
+			if (l == letter && !ahorcado.getLettersChecked().contains(letter)) {
 
-				ahorcado.setTrueWordMask(i);
+				ahorcado.getLettersChecked().add(letter);
 			}
 			i++;
 		}
-	}
 
-	public char[] getWord() {
-
-		return ahorcado.getWord();
-	}
-
-	public char[] getWordToShow() {
-
-		return ahorcado.getWordToShow();
-	}
-
-	public boolean[] getWordMask() {
-
-		return ahorcado.getWordMask();
+		System.out.printf("Letra %s\n", letter);
+		System.out.println(ahorcado.getWord());
+		System.out.println(ahorcado.getWordToShow());
+		System.out.printf("%s - %s\n", ahorcado.getLettersChecked().size(), ahorcado.getWordLetters());
 	}
 
 	public Ahorcado getAhorcado() {
@@ -70,22 +66,19 @@ public class AhorcadoService {
 		ahorcado.setWord(word.toCharArray());
 		ahorcado.setWordToShow(wordToShow.toCharArray());
 		ahorcado.setTries(level.getTries());
-		ahorcado.setWordMask(generateMaskForWord(word.toCharArray()));
+		ahorcado.setLettersChecked(new ArrayList<>());
+		ahorcado.setWordLetters(calcWordLetters(word));
 	}
 
-	private boolean[] generateMaskForWord(char[] word) {
+	private int calcWordLetters(String word) {
 
-		boolean[] mask = new boolean[word.length];
-		Arrays.fill(mask, false);
+		word = word.replace(" ", "");
 
-		for (int i = 0; i < mask.length; i++) {
+		LinkedHashSet<Character> letters =
+						new LinkedHashSet<>(word.chars()
+										.mapToObj(n -> (char) n)
+										.collect(Collectors.toList()));
 
-			if (word[i] == ' ' || word[i] == '-') {
-
-				mask[i] = true;
-			}
-		}
-
-		return mask;
+		return letters.size();
 	}
 }

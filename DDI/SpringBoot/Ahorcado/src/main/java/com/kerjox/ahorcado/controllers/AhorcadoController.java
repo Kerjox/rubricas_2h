@@ -32,10 +32,6 @@ public class AhorcadoController {
 	public ModelAndView checkLetter(@RequestParam("letter") char letter) {
 
 		ahorcadoService.checkLetter(letter);
-		System.out.printf("Letra %s", letter);
-		System.out.println(ahorcadoService.getWord());
-		System.out.println(ahorcadoService.getWordToShow());
-		System.out.println(Arrays.toString(ahorcadoService.getWordMask()));
 
 		return getIndex();
 	}
@@ -50,7 +46,7 @@ public class AhorcadoController {
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("consonant", AhorcadoUtils.getAlphabet(false));
-		modelAndView.addObject("vocals", AhorcadoUtils.getVocals());
+		modelAndView.addObject("alphabet", AhorcadoUtils.getAlphabet());
 		modelAndView.setViewName("index");
 		modelAndView.addObject("ahorcado", ahorcadoService.getAhorcado());
 
