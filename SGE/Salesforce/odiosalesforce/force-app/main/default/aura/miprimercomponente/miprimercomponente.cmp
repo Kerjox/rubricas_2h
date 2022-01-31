@@ -1,0 +1,8 @@
+<aura:component>
+    <aura:attribute name="myvariable" type="String"/>
+    <div>Soy un componente</div>
+    <input label="Escribe tu mensaje" aura:id="msg" value="jairo"/>
+    <lightning:input type="date" aura:id="input2" name="input2" label="Date field with a predefined value" value="2020-09-07"/>
+    <input type="button" onclick="{!c.holaMundo}" value="click me"/>
+    <div>El contenido de myvariable es {!v.myvariable}</div>
+</aura:component>

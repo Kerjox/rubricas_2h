@@ -1,0 +1,6 @@
+<aura:component>
+    <aura:attribute name="variable2" type="String"/>
+<div>Este es mi segundo componente</div>
+informacion de evento: {!v.variable2}
+<aura:handler event="c:myEvent" action="{!c.gestionarEvento}"/>
+</aura:component>	
