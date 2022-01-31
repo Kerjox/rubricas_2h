@@ -31,6 +31,11 @@
 	</div>
 	<div class="row justify-content-center">
 		<div class="col-auto">
+
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-auto">
 			<jsp:useBean id="ahorcado" scope="request" type="com.kerjox.ahorcado.entities.Ahorcado"/>
 			<c:forEach var="letter" items="${ahorcado.wordToShow}" varStatus="i">
 
