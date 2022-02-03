@@ -1,14 +1,13 @@
 package com.kerjox.ahorcado.utils;
 
 import org.springframework.boot.configurationprocessor.json.JSONArray;
-import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 
-public abstract class JsonUtils {
+public class JsonUtils {
 
 	private static String Read(Reader re) throws IOException {     // class Declaration
 		StringBuilder str = new StringBuilder();     // To Store Url Data In String.
