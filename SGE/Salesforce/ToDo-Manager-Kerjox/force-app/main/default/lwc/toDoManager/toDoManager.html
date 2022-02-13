@@ -31,26 +31,12 @@
       <lightning-layout-item size="12">
         <div>UPCOMING</div>
         <template for:each={upcomingTasks} for:item="todo">
-          <div class="item-class" key={todo.todoId}>
-            
-            <span class="slds-text-handing_label">{todo.todoName}</span>
-            <lightning-button-icon class="slds-p-horizontal_medium" icon-name="utility:check" title="Update todo" onclick={updateHandler}>
-            </lightning-button-icon>
-            <lightning-button-icon class="slds-p-horizontal_medium" icon-name="utility:delete" title="Delete todo" onclick={deleteHandler}>
-            </lightning-button-icon>
-          </div>
+          <c-to-do-item key={todo.todoId} todo-id={todo.todoId} todo-name={todo.todoName}></c-to-do-item>
         </template>
 
         <div>COMPLETED</div>
         <template for:each={completedTasks} for:item="todo">
-          <div class="item-class" key={todo.todoId}>
-            
-            <span class="slds-text-handing_label">{todo.todoName}</span>
-            <lightning-button-icon class="slds-p-horizontal_medium" icon-name="utility:check" title="Update todo" onclick={updateHandler}>
-            </lightning-button-icon>
-            <lightning-button-icon class="slds-p-horizontal_medium" icon-name="utility:delete" title="Delete todo" onclick={deleteHandler}>
-            </lightning-button-icon>
-          </div>
+          <c-to-do-item key={todo.todoId} todo-id={todo.todoId} todo-name={todo.todoName} done></c-to-do-item>
         </template>
       </lightning-layout-item>
     </lightning-layout>
