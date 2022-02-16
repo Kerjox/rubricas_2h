@@ -1,0 +1,26 @@
+<aura:component>
+    <aura:handler event="c:insertIntoTable" action="{!c.addToTable}"/>
+    <aura:attribute name="output" type="Object[]"/>
+    <table border="1px solid black">
+
+    <aura:iteration items="{!v.output}" var="out" indexVar="index">
+        <tr>
+            {!index}
+        <td>
+            {!out.nombre}
+        </td>
+        <td>
+            {!out.apellido}
+        </td>
+        <td>
+            {!out.edad}
+        </td>
+        <td>
+            <input class="form-control" type="button" name="delete all" onclick="{!c.deleteAll}" data-value="{!index}" value="delete element"/>
+        </td>
+        </tr>    
+        </aura:iteration>
+        
+    </table>
+    <c:DeleteAllTable aura:id="child" list="{!v.output}"/>
+</aura:component>	

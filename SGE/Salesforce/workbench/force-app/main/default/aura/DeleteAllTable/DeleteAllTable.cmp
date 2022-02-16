@@ -1,0 +1,20 @@
+<aura:component controller="Manager">
+    <aura:attribute name="list" type="string[]"/>    
+    <input type="button" onclick="{!c.deleteAll}" value="Clear List"/>
+    <aura:iteration items="{!v.list}" var="out" indexVar="index">
+    <tr>
+        <td>
+            {!out.nombre}
+        </td>
+        <td>
+            {!out.apellido}
+        </td>
+        <td>
+            <input type="button" onclick="{!c.changeName}" data-value="{!index}" />
+        </td>
+    </tr>    
+    </aura:iteration>
+    <aura:method name="deleteItemIdFromSon" action="{!c.deleteItem}">
+        <aura:attribute name="id" type="int"/>
+    </aura:method>
+</aura:component>	
