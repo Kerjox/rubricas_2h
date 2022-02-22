@@ -1,0 +1,6 @@
+<aura:component>
+  <input type="number" aura:id="posX" placeholder="X"></input>
+  <input type="number" aura:id="posY" placeholder="Y"></input>
+
+  <button type="button" onclick="{!c.ponerFicha}">Jugar</button>
+</aura:component>

@@ -1,0 +1,21 @@
+<aura:component>
+  <table aura:id="tablero">
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </table>
+  <aura:attribute name="token" type="Boolean" default="false"/>
+  <aura:handler event="c:PonerFichaEvent" action="{!c.ponerFicha}"/>
+</aura:component>	

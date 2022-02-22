@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="PonerFichaEvent">
+  <aura:attribute name="coords" type="Integer[]"/>
+</aura:event>
+
