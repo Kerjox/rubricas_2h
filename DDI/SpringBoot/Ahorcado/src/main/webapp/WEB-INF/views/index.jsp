@@ -55,7 +55,7 @@
 
 					</c:when>
 
-					<c:when test="${letter.toString() == '-'}">
+						<c:when test="${letter.toString() == '-'}">
 
 						<div class="btn cursor-normal">-</div>
 					</c:when>

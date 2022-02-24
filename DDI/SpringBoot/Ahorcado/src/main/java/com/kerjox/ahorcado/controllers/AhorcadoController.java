@@ -18,21 +18,16 @@ public class AhorcadoController {
 	@Autowired
 	AhorcadoService ahorcadoService;
 
-	public void setAhorcadoService(AhorcadoService ahorcadoService) {
-		this.ahorcadoService = ahorcadoService;
-	}
-
 	@GetMapping("/")
 	public ModelAndView index() {
 		ahorcadoService.initGame();
 		return getIndex();
 	}
 
-	@RequestMapping(value = "/checkLetter", params = {"letter"}, method = RequestMethod.GET)
+	@GetMapping(value = "/checkLetter")
 	public ModelAndView checkLetter(@RequestParam("letter") char letter) {
 
 		ahorcadoService.checkLetter(letter);
-
 		return getIndex();
 	}
 
@@ -47,8 +42,8 @@ public class AhorcadoController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("consonant", AhorcadoUtils.getAlphabet(false));
 		modelAndView.addObject("alphabet", AhorcadoUtils.getAlphabet());
-		modelAndView.setViewName("index");
 		modelAndView.addObject("ahorcado", ahorcadoService.getAhorcado());
+		modelAndView.setViewName("index");
 
 		return modelAndView;
 	}

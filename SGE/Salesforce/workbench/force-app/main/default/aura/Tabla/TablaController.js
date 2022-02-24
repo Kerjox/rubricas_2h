@@ -20,7 +20,5 @@
             list.splice(id, 1);
             component.set("v.output", list);
         }
-
-    },
-
+    }
 })

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
@@ -61,7 +62,8 @@ public class AhorcadoService {
 		String word = wg.generateNewWord(level.getMinLength(), level.getMaxLength());
 		String wordToShow = word.toUpperCase().replaceAll("[^A-Z] ", "");
 
-		word = Normalizer.normalize(word, Normalizer.Form.NFD).toUpperCase().replaceAll("[^A-Z] ", "");
+		word = Normalizer.normalize(word, Normalizer.Form.NFD)
+						.toUpperCase().replaceAll("[^A-Z] ", "");
 
 		ahorcado.setWord(word.toCharArray());
 		ahorcado.setWordToShow(wordToShow.toCharArray());
@@ -74,8 +76,8 @@ public class AhorcadoService {
 
 		word = word.replace(" ", "");
 
-		LinkedHashSet<Character> letters =
-						new LinkedHashSet<>(word.chars()
+		HashSet<Character> letters =
+						new HashSet<>(word.chars()
 										.mapToObj(n -> (char) n)
 										.collect(Collectors.toList()));
 
