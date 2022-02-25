@@ -2,7 +2,8 @@
   
   <c:IntroducirDatosJuego></c:IntroducirDatosJuego>
 
-  <c:ResetButton></c:ResetButton>
+  <c:Tablero aura:id="tableroComponent"></c:Tablero>
+
   
   <aura:registerEvent name="PonerFichaEvent" type="c:PonerFichaEvent"/>
 

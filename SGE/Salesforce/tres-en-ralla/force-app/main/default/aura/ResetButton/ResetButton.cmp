@@ -1,4 +1,4 @@
 <aura:component>
-  <c:Tablero aura:id="tableroComponent"></c:Tablero>
+  <aura:attribute name="onDataReady" type="Aura.Action" />
   <button type="button" onclick="{!c.reset}">Reset</button>
 </aura:component>	

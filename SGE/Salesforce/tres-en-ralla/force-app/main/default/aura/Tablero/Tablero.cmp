@@ -16,7 +16,7 @@
       <td>-</td>
     </tr>
   </table>
+  <c:ResetButton onDataReady="{!reset}"></c:ResetButton>
   <aura:attribute name="token" type="Boolean" default="false"/>
-  <aura:method name="reset" action="{!c.reset}"></aura:method>
   <aura:handler event="c:PonerFichaEvent" action="{!c.ponerFicha}"/>
 </aura:component>	
