@@ -1,3 +1,4 @@
+//data.sql
 insert into student
 values(10001,'ranga', 'e1234567');
 

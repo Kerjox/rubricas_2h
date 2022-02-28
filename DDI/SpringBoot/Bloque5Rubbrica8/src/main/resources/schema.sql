@@ -1,3 +1,4 @@
+//schema.sql
 create table student
 (
     id integer not null,
