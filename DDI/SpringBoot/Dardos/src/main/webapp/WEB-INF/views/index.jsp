@@ -25,38 +25,49 @@
 	<div class="row justify-content-center">
 		<%--@elvariable id="players" type="java.util.List"--%>
 		<c:forEach var="player" items="${players}">
-		<div class="col-6">
-			<table class="table table-bordered border-primary">
-				<thead>
-				<tr>
-					<th scope="col">${player.getName()}</th>
-					<th scope="col">Puntos</th>
-				</tr>
-				</thead>
-				<tbody>
-				<c:forEach var="tirada" items="${player.getTiradas()}">
+			<div class="col-6">
+				<table class="table table-bordered border-primary">
+					<thead>
 					<tr>
-						<td>
-							<span>Trada ${tirada.getId()}:</span>
-								<c:forEach var="dardo" items="${tirada.getDardos()}">
-									${dardo.toString()}
-								</c:forEach>
-						</td>
-						<td>
-							${tirada.getPuntosTirada()}
-						</td>
-
+						<th scope="col">${player.getName()}</th>
+						<th scope="col">Puntos</th>
 					</tr>
-				</c:forEach>
+					</thead>
+					<tbody>
+					<c:forEach var="tirada" items="${player.getTiradas()}">
+						<tr>
+							<td>
+								<span>Trada ${tirada.getId()}:</span>
+								<table class="table table-bordered border-primary">
+									<thead>
+									<tr>
+										<th>Dardo 1</th>
+										<th>Dardo 2</th>
+										<th>Dardo 3</th>
+									</tr>
+									</thead>
+									<tr>
+										<c:forEach var="dardo" items="${tirada.getDardos()}">
+											<td>${dardo.toString()}</td>
+										</c:forEach>
+									</tr>
+								</table>
+							</td>
+							<td>
+									${tirada.getPuntosTirada()}
+							</td>
 
-				<tr>
-					<td><b>Total:</b></td>
-					<td><b>${player.getPuntos()}</b></td>
-				</tr>
+						</tr>
+					</c:forEach>
 
-				</tbody>
-			</table>
-		</div>
+					<tr>
+						<td><b>Total:</b></td>
+						<td><b>${player.getPuntos()}</b></td>
+					</tr>
+
+					</tbody>
+				</table>
+			</div>
 		</c:forEach>
 
 		<h2>Tirada: ${players.get(0).getIdTirada()}</h2>
