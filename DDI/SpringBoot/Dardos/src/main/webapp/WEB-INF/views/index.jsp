@@ -29,7 +29,12 @@
 				<table class="table table-bordered border-primary">
 					<thead>
 					<tr>
-						<th scope="col">${player.getName()}</th>
+						<th scope="col">
+								${player.getName()}
+								<c:if test="${player.isWinner()}">
+									<h3>¡Winner!</h3>
+								</c:if>
+						</th>
 						<th scope="col">Puntos</th>
 					</tr>
 					</thead>
@@ -62,7 +67,13 @@
 
 					<tr>
 						<td><b>Total:</b></td>
-						<td><b>${player.getPuntos()}</b></td>
+						<c:if test="${player.getPuntos() == 301}">
+							<td style="color: green"><b>${player.getPuntos()}</b></td>
+						</c:if>
+						<c:if test="${player.getPuntos() != 301}">
+							<td><b>${player.getPuntos()}</b></td>
+						</c:if>
+
 					</tr>
 
 					</tbody>

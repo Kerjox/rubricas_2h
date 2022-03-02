@@ -8,18 +8,25 @@ import java.util.List;
 
 public class Player {
 
+	private final Mode mode;
 	private int idTirada;
 	private String name;
 	private Integer puntos;
-	private final Mode mode;
+	private boolean winner;
 	private List<Tirada> tiradas;
+
 	public Player(String name, Mode mode) {
 
 		this.idTirada = 1;
 		this.name = name;
 		this.puntos = 0;
 		this.mode = mode;
+		this.winner = false;
 		this.tiradas = new ArrayList<>();
+	}
+
+	public boolean isWinner() {
+		return winner;
 	}
 
 	public int getIdTirada() {
@@ -50,7 +57,7 @@ public class Player {
 		this.tiradas = tiradas;
 	}
 
-	public boolean tirar() {
+	public void tirar() {
 
 		Tirada tirada = new Tirada(idTirada);
 
@@ -63,11 +70,12 @@ public class Player {
 			if (puntosJugador > mode.getMaxPoints()) {
 
 				this.idTirada++;
-				return false;
+				return;
 			}
 
 			if (puntosJugador == mode.getMaxPoints()) {
 
+				this.winner = true;
 				break;
 			}
 		}
@@ -76,6 +84,5 @@ public class Player {
 		System.out.println(tirada + name + ": " + puntos);
 		this.tiradas.add(tirada);
 		this.idTirada++;
-		return false;
 	}
 }
