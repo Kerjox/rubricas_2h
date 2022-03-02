@@ -1,24 +1,29 @@
 package com.kerjox.dardos.entities;
 
 import com.kerjox.dardos.modes.Mode;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Player {
 
-	@Autowired
-	private Mode mode;
-
+	private int idTirada;
 	private String name;
 	private Integer puntos;
+	private final Mode mode;
 	private List<Tirada> tiradas;
+	public Player(String name, Mode mode) {
 
-	public Player(String name) {
+		this.idTirada = 1;
 		this.name = name;
 		this.puntos = 0;
+		this.mode = mode;
 		this.tiradas = new ArrayList<>();
+	}
+
+	public int getIdTirada() {
+		return idTirada;
 	}
 
 	public Integer getPuntos() {
@@ -47,25 +52,30 @@ public class Player {
 
 	public boolean tirar() {
 
-		Tirada tirada = new Tirada();
+		Tirada tirada = new Tirada(idTirada);
 
 		for (int i = 0; i < 3; i++) {
 
-			int puntosJugador = tirada.tirarDardo() + puntos;
+			tirada.tirarDardo();
+			int puntosJugador = tirada.getPuntosTirada() + puntos;
+			System.out.println(puntosJugador);
 
 			if (puntosJugador > mode.getMaxPoints()) {
 
+				this.idTirada++;
 				return false;
 			}
 
 			if (puntosJugador == mode.getMaxPoints()) {
 
-				this.tiradas.add(tirada);
-				return true;
+				break;
 			}
 		}
 
+		puntos += tirada.getPuntosTirada();
+		System.out.println(tirada + name + ": " + puntos);
 		this.tiradas.add(tirada);
+		this.idTirada++;
 		return false;
 	}
 }

@@ -1,6 +1,8 @@
 package com.kerjox.dardos.services;
 
 import com.kerjox.dardos.entities.Player;
+import com.kerjox.dardos.modes.Mode;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,6 +10,9 @@ import java.util.List;
 
 @Service
 public class GameService {
+
+	@Autowired
+	private Mode mode;
 
 	private int activePlayer;
 	private List<Player> players;
@@ -27,7 +32,7 @@ public class GameService {
 
 		for (int i = 1; i <= numPlayers; i++) {
 
-			players.add(new Player("Player" + i));
+			players.add(new Player("Player" + i, mode));
 		}
 
 		this.activePlayer = 0;
@@ -39,7 +44,8 @@ public class GameService {
 
 		Player player = players.get(activePlayer);
 
-		if (activePlayer == players.size() - 1) {
+		activePlayer++;
+		if (activePlayer > players.size() - 1) {
 
 			activePlayer = 0;
 		}

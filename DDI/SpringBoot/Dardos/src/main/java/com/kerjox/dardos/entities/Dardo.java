@@ -10,6 +10,11 @@ public class Dardo {
 	private Integer puntos;
 	private Integer multiplicador;
 
+	@Override
+	public String toString() {
+		return puntos + " x" + multiplicador;
+	}
+
 	public Dardo() {
 
 		int number = ((int) (Math.random() * 22)) + 1;

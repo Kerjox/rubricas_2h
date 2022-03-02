@@ -23,38 +23,43 @@
 		</div>
 	</div>
 	<div class="row justify-content-center">
-		<div class="col-auto">
-
-			<table class="table">
+		<%--@elvariable id="players" type="java.util.List"--%>
+		<c:forEach var="player" items="${players}">
+		<div class="col-6">
+			<table class="table table-bordered border-primary">
 				<thead>
 				<tr>
-					<%--@elvariable id="players" type="java.util.List"--%>
-					<c:forEach var="player" items="${players}">
-						<th scope="col">${player.getName()}</th>
-					</c:forEach>
+					<th scope="col">${player.getName()}</th>
+					<th scope="col">Puntos</th>
 				</tr>
 				</thead>
 				<tbody>
+				<c:forEach var="tirada" items="${player.getTiradas()}">
+					<tr>
+						<td>
+							<span>Trada ${tirada.getId()}:</span>
+								<c:forEach var="dardo" items="${tirada.getDardos()}">
+									${dardo.toString()}
+								</c:forEach>
+						</td>
+						<td>
+							${tirada.getPuntosTirada()}
+						</td>
+
+					</tr>
+				</c:forEach>
+
 				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
+					<td><b>Total:</b></td>
+					<td><b>${player.getPuntos()}</b></td>
 				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>@twitter</td>
-				</tr>
+
 				</tbody>
 			</table>
 		</div>
+		</c:forEach>
+
+		<h2>Tirada: ${players.get(0).getIdTirada()}</h2>
 	</div>
 
 	<a type="button" class="btn btn-primary" href="play">Play</a>
