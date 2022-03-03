@@ -16,7 +16,7 @@ public class DardosController {
 	public ModelAndView index() {
 
 		ModelAndView mv = new ModelAndView();
-		gameService.initGame(2);
+		gameService.initGame();
 		mv.setViewName("index");
 		mv.addObject("players", gameService.getPlayers());
 		return mv;
@@ -27,7 +27,10 @@ public class DardosController {
 
 		ModelAndView mv = new ModelAndView();
 
-		gameService.play();
+		while (true) {
+
+			if (gameService.play()) break;
+		}
 
 		mv.setViewName("index");
 		mv.addObject("players", gameService.getPlayers());

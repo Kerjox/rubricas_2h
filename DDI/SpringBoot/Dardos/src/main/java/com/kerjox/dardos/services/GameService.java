@@ -3,6 +3,7 @@ package com.kerjox.dardos.services;
 import com.kerjox.dardos.entities.Player;
 import com.kerjox.dardos.modes.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -14,6 +15,10 @@ public class GameService {
 	@Autowired
 	private Mode mode;
 
+
+	@Value("app.numPlayers")
+	private Integer numPlayers;
+
 	private int activePlayer;
 	private LinkedList<Player> players;
 
@@ -21,7 +26,7 @@ public class GameService {
 		return players;
 	}
 
-	public void initGame(int numPlayers) {
+	public void initGame() {
 
 		this.players = initPlayers(numPlayers);
 	}
@@ -40,12 +45,12 @@ public class GameService {
 		return players;
 	}
 
-	public void play() {
+	public boolean play() {
 
 		Player player = players.get(activePlayer);
 
 		player.tirar();
-		if (player.isWinner()) return;
+		if (player.isWinner()) return true;
 
 		activePlayer++;
 		if (activePlayer > players.size() - 1) {
@@ -53,6 +58,7 @@ public class GameService {
 			activePlayer = 0;
 		}
 
+		return false;
 	}
 
 	public Player getActivePlayer() {
