@@ -75,11 +75,9 @@ public class MasterMindRestController {
 	}
 
 	@PostMapping("saveRecordScore")
-	public ResponseEntity<Key> saveRecordScore() {
+	public ResponseEntity saveRecordScore() {
 
-		Key key = new Key();
-
-		return new ResponseEntity<>(key, HttpStatus.CREATED);
+		return new ResponseEntity(HttpStatus.CREATED);
 	}
 
 	@GetMapping("listScoreboard")
