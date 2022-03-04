@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class CincoCeroUnoMode implements Mode {
 
 	@Override
-	public int getMaxPoints() {
+	public Integer getMaxPoints() {
 		return 501;
 	}
 }

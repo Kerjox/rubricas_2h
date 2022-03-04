@@ -6,8 +6,8 @@ import java.util.List;
 public class Tirada {
 
 	private final List<Dardo> dardos;
-	private final int id;
-	private int puntosTirada;
+	private final Integer id;
+	private Integer puntosTirada;
 
 	public Tirada(int id) {
 
@@ -16,7 +16,7 @@ public class Tirada {
 		this.puntosTirada = 0;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -24,7 +24,7 @@ public class Tirada {
 		return dardos;
 	}
 
-	public int getPuntosTirada() {
+	public Integer getPuntosTirada() {
 		return puntosTirada;
 	}
 

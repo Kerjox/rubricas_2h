@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class TresCeroUnoMode implements Mode {
 
 	@Override
-	public int getMaxPoints() {
+	public Integer getMaxPoints() {
 		return 301;
 	}
 }

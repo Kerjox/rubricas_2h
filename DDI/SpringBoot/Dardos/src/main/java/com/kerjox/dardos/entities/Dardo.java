@@ -1,7 +1,5 @@
 package com.kerjox.dardos.entities;
 
-import java.util.Random;
-
 public class Dardo {
 
 	public static final int X2 = 2;

@@ -2,7 +2,7 @@
   "properties": [
     {
       "name": "app.numPlayers",
-      "type": "java.lang.String",
+      "type": "java.lang.Integer",
       "description": "Description for app.numPlayers."
     }
   ] }

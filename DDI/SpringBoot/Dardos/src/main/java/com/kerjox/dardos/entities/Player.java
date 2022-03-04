@@ -9,8 +9,8 @@ import java.util.List;
 public class Player {
 
 	private final Mode mode;
-	private int idTirada;
 	private String name;
+	private Integer idTirada;
 	private Integer puntos;
 	private boolean winner;
 	private List<Tirada> tiradas;
@@ -29,7 +29,11 @@ public class Player {
 		return winner;
 	}
 
-	public int getIdTirada() {
+	public void setWinner(boolean winner) {
+		this.winner = winner;
+	}
+
+	public Integer getIdTirada() {
 		return idTirada;
 	}
 

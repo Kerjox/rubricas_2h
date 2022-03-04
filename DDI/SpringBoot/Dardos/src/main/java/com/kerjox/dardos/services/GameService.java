@@ -2,11 +2,11 @@ package com.kerjox.dardos.services;
 
 import com.kerjox.dardos.entities.Player;
 import com.kerjox.dardos.modes.Mode;
+import jdk.jfr.Unsigned;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -14,51 +14,65 @@ public class GameService {
 
 	@Autowired
 	private Mode mode;
-
-
-	@Value("app.numPlayers")
+	@Value("${app.numPlayers}")
+	@Unsigned
 	private Integer numPlayers;
+	private Integer activePlayer;
+	private List<Player> players;
 
-	private int activePlayer;
-	private LinkedList<Player> players;
+	public void setNumPlayers(Integer numPlayers) {
+		this.numPlayers = numPlayers;
+	}
+
+	public Integer getIndexActivePlayer() {
+		return activePlayer;
+	}
+
+	public void setActivePlayer(Integer activePlayer) {
+		this.activePlayer = activePlayer;
+	}
+
+	public void setMode(Mode mode) {
+		this.mode = mode;
+	}
 
 	public List<Player> getPlayers() {
 		return players;
 	}
 
-	public void initGame() {
-
-		this.players = initPlayers(numPlayers);
+	public void setPlayers(List<Player> players) {
+		this.players = players;
 	}
 
-	private LinkedList<Player> initPlayers(int numPlayers) {
+	public void initGame() {
 
-		LinkedList<Player> players = new LinkedList<>();
+		if (numPlayers <= 0) {
+
+			throw new RuntimeException("Players can not be 0 ot below 0");
+		}
+
+		initPlayers();
+
+		this.activePlayer = 0;
+	}
+
+	protected void initPlayers() {
 
 		for (int i = 1; i <= numPlayers; i++) {
 
 			players.add(new Player("Player " + i, mode));
 		}
-
-		this.activePlayer = 0;
-
-		return players;
 	}
 
-	public boolean play() {
-
-		Player player = players.get(activePlayer);
+	public void play(Player player) {
 
 		player.tirar();
-		if (player.isWinner()) return true;
 
 		activePlayer++;
-		if (activePlayer > players.size() - 1) {
+		if (activePlayer == players.size()) {
 
 			activePlayer = 0;
 		}
-
-		return false;
 	}
 
 	public Player getActivePlayer() {
