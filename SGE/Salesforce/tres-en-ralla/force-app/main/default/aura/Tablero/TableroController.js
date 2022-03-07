@@ -3,11 +3,14 @@
 
         var token = component.get("v.token");
         var coords = event.getParam("coords");
+        var tableroArray = [];
 
         var tablero = component.find("tablero").getElement();
         console.log(tablero);
         tablero.getElementsByTagName("tr")[coords[0]].getElementsByTagName("td")[coords[1]].innerHTML = token? "X" : "O";
         component.set("v.token", !token);
+
+        helper.checkMove(component, event, tableroArray);
     },
 
     reset : function(component, event, helper) {
