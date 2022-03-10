@@ -11,6 +11,7 @@
 	<groupId>com.kerjox</groupId>
 	<artifactId>Dardos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>Dardos</name>
 	<description>Dardos</description>
 	<properties>
