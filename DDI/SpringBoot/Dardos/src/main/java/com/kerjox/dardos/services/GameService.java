@@ -47,6 +47,8 @@ public class GameService {
 
 	public void initGame() {
 
+		this.players = new ArrayList<>();
+
 		if (numPlayers <= 0) {
 
 			throw new RuntimeException("Players can not be 0 ot below 0");
@@ -58,8 +60,6 @@ public class GameService {
 	}
 
 	protected void initPlayers() {
-
-		this.players = new ArrayList<>();
 
 		for (int i = 1; i <= numPlayers; i++) {
 
