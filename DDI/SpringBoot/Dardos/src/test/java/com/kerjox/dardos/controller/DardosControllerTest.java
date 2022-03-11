@@ -73,7 +73,6 @@ class DardosControllerTest {
 		when(service.getActivePlayer()).thenThrow(NullPointerException.class);
 
 		var result = mvc.perform(get("/play")).andReturn();
-
 		var response = result.getResponse();
 		var mv = result.getModelAndView();
 
@@ -90,13 +89,12 @@ class DardosControllerTest {
 
 		when(service.getActivePlayer()).thenReturn(players.get(0));
 		players.get(0).setWinner(true);
-		var result = mvc.perform(get("/play")).andReturn();
 
+		var result = mvc.perform(get("/play")).andReturn();
 		var response = result.getResponse();
 		var mv = result.getModelAndView();
 
 		assertEquals(HttpStatus.OK.value(), response.getStatus());
-
 		// Test ModelAndView
 		assertNotNull(mv);
 		assertEquals("index", mv.getViewName());

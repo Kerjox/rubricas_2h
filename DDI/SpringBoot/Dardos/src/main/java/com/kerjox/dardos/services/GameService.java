@@ -51,7 +51,7 @@ public class GameService {
 
 		if (numPlayers <= 0) {
 
-			throw new RuntimeException("Players can not be 0 ot below 0");
+			throw new RuntimeException("Players can not be 0 or below 0");
 		}
 
 		initPlayers();
