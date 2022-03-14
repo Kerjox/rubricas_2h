@@ -1,23 +1,15 @@
 package com.kerjox.mastermindapi.entities;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Builder
+@Getter
+@Setter
 public class Answer {
 
 	private String answer[];
 	private String message;
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String[] getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String[] answer) {
-		this.answer = answer;
-	}
+	private String reason;
 }

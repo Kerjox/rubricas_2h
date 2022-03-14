@@ -3,12 +3,12 @@ package com.kerjox.mastermindapi.controllers;
 import com.kerjox.mastermindapi.entities.Answer;
 import com.kerjox.mastermindapi.entities.Key;
 import com.kerjox.mastermindapi.entities.ScoreBoard;
-import com.kerjox.mastermindapi.entities.Tries;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -16,27 +16,25 @@ import java.util.List;
 @RequestMapping("/api/")
 public class MasterMindRestController {
 
+	private Key key = new Key();
+
 	@GetMapping("generateKey")
 	public ResponseEntity<Key> generateNewKey(@RequestBody Key key) {
 
-		key.setGeneratedKey("Kerjox");
+		key.setGeneratedKey("rojo,azul,naranja,rosa,verde");
 		return new ResponseEntity<>(key, HttpStatus.OK);
 	}
 
 	@GetMapping("changeTries")
-	public ResponseEntity<Tries> changeTries(@RequestParam("tries") int newTries) {
+	public ResponseEntity<Key> changeTries(@RequestParam("tries") int newTries) {
 
-		Tries tries = new Tries();
+		key.setTries(newTries);
 
-		tries.setTries(newTries);
-
-		return new ResponseEntity<>(tries, HttpStatus.OK);
+		return new ResponseEntity<>(key, HttpStatus.OK);
 	}
 
 	@GetMapping("answerSize/{size}")
 	public ResponseEntity<Key> answerSize(@PathVariable int size) {
-
-		Key key = new Key();
 
 		key.setSize(size);
 
@@ -61,17 +59,27 @@ public class MasterMindRestController {
 	@GetMapping("checkAnswer")
 	public ResponseEntity<Answer> checkAnswer(@RequestBody Answer answer) {
 
-		answer.setMessage("CORRECT");
-		return new ResponseEntity<>(answer, HttpStatus.ACCEPTED);
+		String[] generatedKey = key.getGeneratedKey().split(",");
+
+		if (generatedKey.length != answer.getAnswer().length) {
+
+			return new ResponseEntity<>(Answer.builder().message("answer size invalid").reason("answer size invalid").build(), HttpStatus.ACCEPTED);
+		}
+
+		if (Arrays.equals(generatedKey, answer.getAnswer())) {
+
+			return new ResponseEntity<>(Answer.builder().message("answer correct").build(), HttpStatus.ACCEPTED);
+		} else {
+
+			return new ResponseEntity<>(Answer.builder().message("answer incorrect").build(), HttpStatus.ACCEPTED);
+		}
 	}
 
 	@PostMapping("checkTries")
-	public ResponseEntity<Tries> checkTries() {
+	public ResponseEntity<Key> checkTries() {
 
-		Tries tries = new Tries();
-
-		tries.setLefttries(5);
-		return new ResponseEntity<>(tries, HttpStatus.CREATED);
+		key.setLefttries(key.getTries());
+		return new ResponseEntity<>(key, HttpStatus.CREATED);
 	}
 
 	@PostMapping("saveRecordScore")
