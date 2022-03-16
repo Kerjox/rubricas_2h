@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kerjox</groupId>
-	<artifactId>MVC</artifactId>
+	<artifactId>REST-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MVC</name>
-	<description>MVC</description>
+	<name>REST-api</name>
+	<description>REST-api</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -37,21 +37,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
 		</dependency>
 	</dependencies>
 

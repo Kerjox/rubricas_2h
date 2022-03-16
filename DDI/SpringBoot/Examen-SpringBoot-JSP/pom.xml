@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kerjox</groupId>
-	<artifactId>MVC</artifactId>
+	<artifactId>Examen-SpringBoot-JSP</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MVC</name>
-	<description>MVC</description>
+	<name>Examen-SpringBoot-JSP</name>
+	<description>Examen-SpringBoot-JSP</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -38,7 +38,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
