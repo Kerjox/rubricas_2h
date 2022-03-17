@@ -4,6 +4,7 @@ import com.kerjox.mvc.entities.Carton;
 import com.kerjox.mvc.utils.BingoUtils;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -12,6 +13,9 @@ import java.util.HashSet;
 @Getter
 @Setter
 public class BingoService {
+
+	@Value("${bingo.number.balls}")
+	private Integer totalBolas;
 
 	private Carton carton;
 	private HashSet<Integer> numerosSacados;
@@ -57,7 +61,7 @@ public class BingoService {
 		Integer random;
 
 		do {
-			random = BingoUtils.generateRandom(1, 90);
+			random = BingoUtils.generateRandom(1, totalBolas);
 
 		} while (!numerosSacados.add(random));
 

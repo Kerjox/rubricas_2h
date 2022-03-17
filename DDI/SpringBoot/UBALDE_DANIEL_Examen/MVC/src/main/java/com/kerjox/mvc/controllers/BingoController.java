@@ -26,6 +26,14 @@ public class BingoController {
 		return getModelAndView();
 	}
 
+	@GetMapping("/autoPlay")
+	public ModelAndView autoPlay(){
+
+		service.autoPlay();
+
+		return getModelAndView();
+	}
+
 	protected ModelAndView getModelAndView() {
 
 		var mv = new ModelAndView("index");
