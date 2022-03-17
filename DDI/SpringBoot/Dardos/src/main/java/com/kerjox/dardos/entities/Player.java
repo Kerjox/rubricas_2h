@@ -1,11 +1,15 @@
 package com.kerjox.dardos.entities;
 
 import com.kerjox.dardos.modes.Mode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+@Getter
+@Setter
 public class Player {
 
 	private Mode mode;
@@ -30,58 +34,6 @@ public class Player {
 		this.mode = mode;
 		this.winner = false;
 		this.tiradas = new ArrayList<>();
-	}
-
-	public Mode getMode() {
-		return mode;
-	}
-
-	public void setMode(Mode mode) {
-		this.mode = mode;
-	}
-
-	public Tirada getTiradaActual() {
-		return tiradaActual;
-	}
-
-	public void setTiradaActual(Tirada tiradaActual) {
-		this.tiradaActual = tiradaActual;
-	}
-
-	public boolean isWinner() {
-		return winner;
-	}
-
-	public void setWinner(boolean winner) {
-		this.winner = winner;
-	}
-
-	public Integer getIdTirada() {
-		return idTirada;
-	}
-
-	public Integer getPuntos() {
-		return puntos;
-	}
-
-	public void setPuntos(Integer puntos) {
-		this.puntos = puntos;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public List<Tirada> getTiradas() {
-		return tiradas;
-	}
-
-	public void setTiradas(List<Tirada> tiradas) {
-		this.tiradas = tiradas;
 	}
 
 	public void tirar() {
