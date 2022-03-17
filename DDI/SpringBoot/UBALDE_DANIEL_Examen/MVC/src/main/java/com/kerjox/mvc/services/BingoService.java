@@ -68,4 +68,12 @@ public class BingoService {
 		this.lastNumber = random;
 		return random;
 	}
+
+	public void reset() {
+
+		this.carton = new Carton();
+		this.numerosSacados.clear();
+		this.lastNumber = null;
+		this.stop = false;
+	}
 }

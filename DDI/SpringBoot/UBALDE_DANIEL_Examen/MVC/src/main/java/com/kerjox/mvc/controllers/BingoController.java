@@ -26,6 +26,14 @@ public class BingoController {
 		return getModelAndView();
 	}
 
+	@GetMapping("/reset")
+	public ModelAndView reset(){
+
+		service.reset();
+
+		return getModelAndView();
+	}
+
 	@GetMapping("/autoPlay")
 	public ModelAndView autoPlay(){
 
@@ -40,6 +48,7 @@ public class BingoController {
 		mv.addObject("carton", service.getCarton());
 		mv.addObject("numerosSacados", service.getNumerosSacados());
 		mv.addObject("lastNumber", service.getLastNumber());
+		mv.addObject("stop", service.isStop());
 
 		return mv;
 	}

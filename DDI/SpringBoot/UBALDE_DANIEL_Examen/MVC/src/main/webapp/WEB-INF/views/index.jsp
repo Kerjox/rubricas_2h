@@ -11,7 +11,13 @@
 
 <div class="container">
 	<br>
-	<h1>Bingo</h1>
+
+	<h1>Bingo
+		<c:if test="${stop}">
+			¡Ganaste!
+		</c:if>
+	</h1>
+
 	<br>
 	<div style="width: 500px">
 
@@ -31,7 +37,19 @@
 		</div>
 	</div>
 	<br>
-	<span><a class="btn btn-primary" href="/play">Sacar Bola</a> <p>Numero sacado: ${lastNumber}</p></span>
+	<span>
+		<c:if test="${stop}">
+			<a class="btn btn-primary disabled" href="/play">Sacar Bola</a>
+			<a class="btn btn-primary disabled" href="/autoPlay">Auto</a>
+			<a class="btn btn-danger" href="/reset">Reset</a>
+		</c:if>
+		<c:if test="${!stop}">
+			<a class="btn btn-primary" href="/play">Sacar Bola</a>
+			<a class="btn btn-primary" href="/autoPlay">Auto</a>
+			<a class="btn btn-danger disabled" href="/reset">Reset</a>
+		</c:if>
+
+		<p>Numero sacado: ${lastNumber}</p></span>
 
 	<div class="row">
 
