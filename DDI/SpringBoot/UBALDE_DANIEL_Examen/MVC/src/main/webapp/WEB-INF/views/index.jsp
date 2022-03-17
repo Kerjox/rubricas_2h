@@ -10,7 +10,44 @@
 <body>
 
 <div class="container">
-	<h1>Hello World!</h1>
+	<br>
+	<h1>Bingo</h1>
+	<br>
+	<div style="width: 500px">
+
+		<div class="row row-cols-5">
+			<%--@elvariable id="carton" type="java.util.List"--%>
+			<c:forEach var="numero" items="${carton.numeros}">
+				<div class="col p-1">
+						<%--@elvariable id="numerosSacados" type="java.util.HashSet"--%>
+					<c:if test="${numerosSacados.contains(numero)}">
+						<div class="btn btn-success">${numero}</div>
+					</c:if>
+					<c:if test="${!numerosSacados.contains(numero)}">
+						<div class="btn btn-dark disabled">${numero}</div>
+					</c:if>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+	<br>
+	<span><a class="btn btn-primary" href="/play">Sacar Bola</a> <p>Numero sacado: ${lastNumber}</p></span>
+
+	<div class="row">
+
+		<c:forEach var="numero" begin="${1}" end="${90}" step="${1}">
+			<div class="col p-1">
+				<c:if test="${numerosSacados.contains(numero)}">
+					<div class="btn btn-warning">${numero}</div>
+				</c:if>
+				<c:if test="${!numerosSacados.contains(numero)}">
+					<div class="btn btn-dark disabled">${numero}</div>
+				</c:if>
+			</div>
+		</c:forEach>
+	</div>
+
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
