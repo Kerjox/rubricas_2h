@@ -28,20 +28,6 @@ public class Tirada {
 		return puntosTirada;
 	}
 
-	@Override
-	public String toString() {
-
-		StringBuilder out = new StringBuilder("Tirada{" + "dardos=\n");
-
-		for (Dardo dardo : dardos) {
-
-			out.append(dardo.toString()).append(", Puntos Totales=").append(dardo.getPoints()).append("\n");
-		}
-
-		out.append('}');
-		return out.toString();
-	}
-
 	public void tirarDardo() {
 
 		Dardo dardo = new Dardo();
