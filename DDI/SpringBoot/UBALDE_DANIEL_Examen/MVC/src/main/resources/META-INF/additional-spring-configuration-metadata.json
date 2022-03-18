@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "bingo.number.balls",
+      "type": "java.lang.Integer",
+      "description": "Description for app.numPlayers."
+    }
+  ] }

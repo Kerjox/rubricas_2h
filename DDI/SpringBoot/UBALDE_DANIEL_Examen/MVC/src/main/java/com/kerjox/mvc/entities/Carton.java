@@ -3,6 +3,7 @@ package com.kerjox.mvc.entities;
 import com.kerjox.mvc.utils.BingoUtils;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.HashSet;
 

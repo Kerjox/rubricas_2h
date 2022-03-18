@@ -1,8 +1,13 @@
 package com.kerjox.dardos.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class Tirada {
 
 	private final List<Dardo> dardos;
@@ -14,32 +19,6 @@ public class Tirada {
 		this.id = id;
 		this.dardos = new ArrayList<>();
 		this.puntosTirada = 0;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public List<Dardo> getDardos() {
-		return dardos;
-	}
-
-	public Integer getPuntosTirada() {
-		return puntosTirada;
-	}
-
-	@Override
-	public String toString() {
-
-		StringBuilder out = new StringBuilder("Tirada{" + "dardos=\n");
-
-		for (Dardo dardo : dardos) {
-
-			out.append(dardo.toString()).append(", Puntos Totales=").append(dardo.getPoints()).append("\n");
-		}
-
-		out.append('}');
-		return out.toString();
 	}
 
 	public void tirarDardo() {

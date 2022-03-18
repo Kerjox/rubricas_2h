@@ -1,19 +1,30 @@
 package com.kerjox.dardos.entities;
 
 import com.kerjox.dardos.modes.Mode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+@Getter
+@Setter
 public class Player {
 
-	private final Mode mode;
+	private Mode mode;
 	private String name;
 	private Integer idTirada;
 	private Integer puntos;
 	private boolean winner;
 	private List<Tirada> tiradas;
+	private Tirada tiradaActual;
+
+	public Player() {
+
+		this.idTirada = 1;
+		this.puntos = 0;
+	}
 
 	public Player(String name, Mode mode) {
 
@@ -25,42 +36,6 @@ public class Player {
 		this.tiradas = new ArrayList<>();
 	}
 
-	public boolean isWinner() {
-		return winner;
-	}
-
-	public void setWinner(boolean winner) {
-		this.winner = winner;
-	}
-
-	public Integer getIdTirada() {
-		return idTirada;
-	}
-
-	public Integer getPuntos() {
-		return puntos;
-	}
-
-	public void setPuntos(Integer puntos) {
-		this.puntos = puntos;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public List<Tirada> getTiradas() {
-		return tiradas;
-	}
-
-	public void setTiradas(List<Tirada> tiradas) {
-		this.tiradas = tiradas;
-	}
-
 	public void tirar() {
 
 		Tirada tirada = new Tirada(idTirada);
@@ -68,8 +43,7 @@ public class Player {
 		for (int i = 0; i < 3; i++) {
 
 			tirada.tirarDardo();
-			int puntosJugador = tirada.getPuntosTirada() + puntos;
-			System.out.println(puntosJugador);
+			Integer puntosJugador = tirada.getPuntosTirada() + puntos;
 
 			if (puntosJugador > mode.getMaxPoints()) {
 
@@ -77,7 +51,7 @@ public class Player {
 				return;
 			}
 
-			if (puntosJugador == mode.getMaxPoints()) {
+			if (puntosJugador.equals(mode.getMaxPoints())) {
 
 				this.winner = true;
 				break;
@@ -85,7 +59,6 @@ public class Player {
 		}
 
 		puntos += tirada.getPuntosTirada();
-		System.out.println(tirada + name + ": " + puntos);
 		this.tiradas.add(tirada);
 		this.idTirada++;
 	}
