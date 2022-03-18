@@ -1,0 +1,27 @@
+<aura:component>
+
+  <table aura:id="carton">
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </table>
+  <aura:handler event="c:SacarBolaEvent" action="{!c.checkCarton}"/>
+</aura:component>	
