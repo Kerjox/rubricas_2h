@@ -9,8 +9,8 @@
             
             var td = carton.getElementsByTagName("td")[i];
 
-            if (td.innerHTML == bola) {
-
+            if (td.innerHTML == bola && td.style.backgroundColor != "green") {
+                
                 td.style.backgroundColor = "red";
                 td.style.color = "white";
                 helper.checkPremios(carton);

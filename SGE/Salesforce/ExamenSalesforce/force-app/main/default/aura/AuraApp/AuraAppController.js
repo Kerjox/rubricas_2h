@@ -1,5 +1,5 @@
 ({
-    llamarApex : function(component, event, helper) {
+    jugar : function(component, event, helper) {
 
         var action = component.get("c.getRandomNumber");
         action.setParams({

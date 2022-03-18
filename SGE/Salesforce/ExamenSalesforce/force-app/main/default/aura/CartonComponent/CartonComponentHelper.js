@@ -1,7 +1,6 @@
 ({
     checkPremios : function(carton) {
 
-        console.log("checkPremios");
         for (let i = 0; i < carton.getElementsByTagName("tr").length; i++) {
         
             let linea = carton.getElementsByTagName("tr")[i].getElementsByTagName("td");
@@ -11,7 +10,7 @@
                 
                 var td = carton.getElementsByTagName("tr")[i].getElementsByTagName("td")[j];
                 
-                if (td.backgroundColor == "red") {
+                if (td.style.backgroundColor == "red") {
                     
                     cont++;
                 }
@@ -19,19 +18,14 @@
 
             if (cont == linea.length) {
             
-                marcarLinea(linea);
-            }
-        }
-    },
-
-    marcarLinea : function(linea) {
-
-        for (let i = 0; i < linea.length; i++) {
+                for (let i = 0; i < linea.length; i++) {
             
-            const td = linea[i];
-                
-            td.style.backgroundColor = "green";
-            td.style.color = "white";
+                    const td = linea[i];
+                        
+                    td.style.backgroundColor = "green";
+                    td.style.color = "white";
+                }
+            }
         }
     }
 })
