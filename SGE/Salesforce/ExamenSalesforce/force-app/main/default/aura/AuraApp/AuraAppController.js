@@ -10,20 +10,15 @@
             var state = response.getState();
             if (state === "SUCCESS") {
 
-                sacarBola(response.getReturnValue());
-                var result = response.getReturnValue();
-                //component.set("v.data", result);
+                var bola = response.getReturnValue();
+                var sacarBolaEvent =$A.get("e.c:SacarBolaEvent");
+                
+                console.log({"bolaSacada": bola});
+        
+                sacarBolaEvent.setParams({"bolaSacada": bola});
+                sacarBolaEvent.fire();
             }
         });
         $A.enqueueAction(action);
-    },
-
-    sacarBola(bola){
-
-        console.log({"bolaSacada": bola});
-        var sacarBolaEvent =$A.get("e.c:SacarBolaEvent");
-        
-        sacarBolaEvent.setParams({"bolaSacada": bola});
-        sacarBolaEvent.fire();
     }
 })

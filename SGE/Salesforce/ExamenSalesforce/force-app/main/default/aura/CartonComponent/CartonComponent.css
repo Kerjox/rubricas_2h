@@ -1,2 +1,14 @@
-.THIS {
+.THIS table, .THIS tr, .THIS td {
+
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.THIS td {
+
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14pt;
 }
