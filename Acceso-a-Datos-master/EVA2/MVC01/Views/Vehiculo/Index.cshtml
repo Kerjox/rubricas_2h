@@ -1,0 +1,70 @@
+﻿@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
+@model IEnumerable<MVC01.Models.VehiculoModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Search by Matricula", "FindByMatricula")
+    @Html.ActionLink("Search by Matricula 2", "FindByMatriculaDropDown")
+    @Html.ActionLink("Search by Color", "FindByColor")
+    @Html.ActionLink("Search by marca and serie", "FindByMarcaAndSerie")
+    @Html.ActionLink("Listado", "Listado")
+    @Html.ActionLink("Find Vehiculos by Color procedure", "FindByColorProcedure")
+
+
+
+</p>
+<table class="table">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Serie.Marca)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Serie)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Matricula)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Color)
+    </th>
+    <th>
+      @Html.DisplayName("Extras")
+    </th>
+    <th>
+      @Html.DisplayName("Acciones")
+    </th>
+  </tr>
+
+@foreach (var item in Model) {
+<tr>
+  <td>
+    @Html.DisplayFor(modelItem => item.Serie.Marca.Nombre)
+  </td>
+  <td>
+    @Html.DisplayFor(modelItem => item.Serie.Nombre)
+  </td>
+  <td>
+      @Html.DisplayFor(modelItem => item.Matricula)
+  </td>
+  <td>
+    @Html.DisplayFor(modelItem => item.Color)
+  </td>
+  <td>
+    @Html.ListBox("Extras", item.ExtrasSelectListItem, new { style = "width:200px" })
+  </td>
+  <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
+}
+
+</table>

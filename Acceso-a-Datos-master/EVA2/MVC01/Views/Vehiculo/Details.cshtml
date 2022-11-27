@@ -1,0 +1,64 @@
+﻿@using MVC01.Models
+@model MVC01.Models.VehiculoModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VehiculoModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Serie.Marca.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Serie.Marca.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Serie.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Serie.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.Color)
+      </dd>
+      <dt>
+        @Html.DisplayName("Extras")
+      </dt>
+        <dd>
+          @foreach (var extraVehiculo in Model.VehiculoExtras) {
+            <table>
+              <th>
+                <td>@Html.DisplayFor(q => extraVehiculo.Extra.Tipo_Extra)</td>
+              </th>
+            </table>
+          }
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

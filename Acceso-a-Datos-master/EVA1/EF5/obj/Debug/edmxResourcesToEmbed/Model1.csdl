@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FutboolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Equipo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Futbolistas" Relationship="Self.EquiposFutbolistas" FromRole="Equipos" ToRole="Futbolistas" />
+  </EntityType>
+  <EntityType Name="Futbolista">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Equipos" Relationship="Self.EquiposFutbolistas" FromRole="Futbolistas" ToRole="Equipos" />
+  </EntityType>
+  <Association Name="EquiposFutbolistas">
+    <End Role="Equipos" Type="FutboolModel.Equipo" Multiplicity="*" />
+    <End Role="Futbolistas" Type="Self.Futbolista" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="FutboolConn" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Equipoes" EntityType="FutboolModel.Equipo" />
+    <EntitySet Name="Futbolistas" EntityType="Self.Futbolista" />
+    <AssociationSet Name="EquiposFutbolistas" Association="Self.EquiposFutbolistas">
+      <End Role="Equipos" EntitySet="Equipoes" />
+      <End Role="Futbolistas" EntitySet="Futbolistas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ColegioEF1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sexo" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="curso_id" Type="Int32" />
+    <Property Name="edad" Type="Int32" />
+    <NavigationProperty Name="Curso" Relationship="Self.Alumnos_Cursos_id_fk" FromRole="Alumnos" ToRole="Cursos" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Alumnos" Relationship="Self.Alumnos_Cursos_id_fk" FromRole="Cursos" ToRole="Alumnos" />
+  </EntityType>
+  <Association Name="Alumnos_Cursos_id_fk">
+    <End Role="Cursos" Type="Self.Curso" Multiplicity="0..1" />
+    <End Role="Alumnos" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cursos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Alumnos">
+        <PropertyRef Name="curso_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ColegioEF1Connection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumnos" EntityType="Self.Alumno" />
+    <EntitySet Name="Cursos" EntityType="Self.Curso" />
+    <AssociationSet Name="Alumnos_Cursos_id_fk" Association="Self.Alumnos_Cursos_id_fk">
+      <End Role="Cursos" EntitySet="Cursos" />
+      <End Role="Alumnos" EntitySet="Alumnos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

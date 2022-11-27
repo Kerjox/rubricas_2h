@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EscuelaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Asignaturas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreAsignatura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AsignaturasCursos" Relationship="Self.AsignaturasCursos_Asignaturas_ID_fk" FromRole="Asignaturas" ToRole="AsignaturasCursos" />
+  </EntityType>
+  <EntityType Name="AsignaturasCursos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AsignaturaID" Type="Int32" />
+    <Property Name="CursoID" Type="Int32" />
+    <NavigationProperty Name="Asignaturas" Relationship="Self.AsignaturasCursos_Asignaturas_ID_fk" FromRole="AsignaturasCursos" ToRole="Asignaturas" />
+    <NavigationProperty Name="Cursos" Relationship="Self.AsignaturasCursos_Cursos_ID_fk" FromRole="AsignaturasCursos" ToRole="Cursos" />
+  </EntityType>
+  <EntityType Name="Cursos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EtapaID" Type="Int32" />
+    <NavigationProperty Name="AsignaturasCursos" Relationship="Self.AsignaturasCursos_Cursos_ID_fk" FromRole="Cursos" ToRole="AsignaturasCursos" />
+    <NavigationProperty Name="Etapas" Relationship="Self.Cursos_Etapas_ID_fk" FromRole="Cursos" ToRole="Etapas" />
+  </EntityType>
+  <EntityType Name="Etapas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Acronimo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cursos" Relationship="Self.Cursos_Etapas_ID_fk" FromRole="Etapas" ToRole="Cursos" />
+  </EntityType>
+  <Association Name="AsignaturasCursos_Asignaturas_ID_fk">
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+    <End Role="AsignaturasCursos" Type="Self.AsignaturasCursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asignaturas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AsignaturasCursos">
+        <PropertyRef Name="AsignaturaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AsignaturasCursos_Cursos_ID_fk">
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+    <End Role="AsignaturasCursos" Type="Self.AsignaturasCursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cursos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AsignaturasCursos">
+        <PropertyRef Name="CursoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Cursos_Etapas_ID_fk">
+    <End Role="Etapas" Type="Self.Etapas" Multiplicity="0..1" />
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etapas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cursos">
+        <PropertyRef Name="EtapaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EscuelaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" />
+    <EntitySet Name="AsignaturasCursos" EntityType="Self.AsignaturasCursos" />
+    <EntitySet Name="Cursos" EntityType="Self.Cursos" />
+    <EntitySet Name="Etapas" EntityType="Self.Etapas" />
+    <AssociationSet Name="AsignaturasCursos_Asignaturas_ID_fk" Association="Self.AsignaturasCursos_Asignaturas_ID_fk">
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+      <End Role="AsignaturasCursos" EntitySet="AsignaturasCursos" />
+    </AssociationSet>
+    <AssociationSet Name="AsignaturasCursos_Cursos_ID_fk" Association="Self.AsignaturasCursos_Cursos_ID_fk">
+      <End Role="Cursos" EntitySet="Cursos" />
+      <End Role="AsignaturasCursos" EntitySet="AsignaturasCursos" />
+    </AssociationSet>
+    <AssociationSet Name="Cursos_Etapas_ID_fk" Association="Self.Cursos_Etapas_ID_fk">
+      <End Role="Etapas" EntitySet="Etapas" />
+      <End Role="Cursos" EntitySet="Cursos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

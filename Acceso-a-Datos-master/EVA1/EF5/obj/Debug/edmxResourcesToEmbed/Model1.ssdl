@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FutboolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Equipos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EquiposFutbolistas">
+    <Key>
+      <PropertyRef Name="idEquipo" />
+      <PropertyRef Name="idFurbolista" />
+    </Key>
+    <Property Name="idEquipo" Type="int" Nullable="false" />
+    <Property Name="idFurbolista" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Futbolistas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__EquiposFu__idEqu__73BA3083">
+    <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+    <End Role="EquiposFutbolistas" Type="Self.EquiposFutbolistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EquiposFutbolistas">
+        <PropertyRef Name="idEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EquiposFu__idFur__74AE54BC">
+    <End Role="Futbolistas" Type="Self.Futbolistas" Multiplicity="1" />
+    <End Role="EquiposFutbolistas" Type="Self.EquiposFutbolistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Futbolistas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EquiposFutbolistas">
+        <PropertyRef Name="idFurbolista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FutboolModelStoreContainer">
+    <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EquiposFutbolistas" EntityType="Self.EquiposFutbolistas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Futbolistas" EntityType="Self.Futbolistas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EquiposFu__idEqu__73BA3083" Association="Self.FK__EquiposFu__idEqu__73BA3083">
+      <End Role="Equipos" EntitySet="Equipos" />
+      <End Role="EquiposFutbolistas" EntitySet="EquiposFutbolistas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EquiposFu__idFur__74AE54BC" Association="Self.FK__EquiposFu__idFur__74AE54BC">
+      <End Role="Futbolistas" EntitySet="Futbolistas" />
+      <End Role="EquiposFutbolistas" EntitySet="EquiposFutbolistas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

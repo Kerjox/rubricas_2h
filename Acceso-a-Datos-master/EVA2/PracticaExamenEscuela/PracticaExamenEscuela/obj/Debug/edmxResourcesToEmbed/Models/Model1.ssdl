@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EscuelaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Asignaturas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreAsignatura" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AsignaturasCursos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsignaturaID" Type="int" />
+    <Property Name="CursoID" Type="int" />
+  </EntityType>
+  <EntityType Name="Cursos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreCurso" Type="varchar" MaxLength="50" />
+    <Property Name="EtapaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Etapas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Acronimo" Type="varchar" MaxLength="5" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="AsignaturasCursos_Asignaturas_ID_fk">
+    <End Role="Asignaturas" Type="Self.Asignaturas" Multiplicity="0..1" />
+    <End Role="AsignaturasCursos" Type="Self.AsignaturasCursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asignaturas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AsignaturasCursos">
+        <PropertyRef Name="AsignaturaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AsignaturasCursos_Cursos_ID_fk">
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+    <End Role="AsignaturasCursos" Type="Self.AsignaturasCursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cursos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AsignaturasCursos">
+        <PropertyRef Name="CursoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Cursos_Etapas_ID_fk">
+    <End Role="Etapas" Type="Self.Etapas" Multiplicity="0..1" />
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etapas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cursos">
+        <PropertyRef Name="EtapaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EscuelaModelStoreContainer">
+    <EntitySet Name="Asignaturas" EntityType="Self.Asignaturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AsignaturasCursos" EntityType="Self.AsignaturasCursos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cursos" EntityType="Self.Cursos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Etapas" EntityType="Self.Etapas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="AsignaturasCursos_Asignaturas_ID_fk" Association="Self.AsignaturasCursos_Asignaturas_ID_fk">
+      <End Role="Asignaturas" EntitySet="Asignaturas" />
+      <End Role="AsignaturasCursos" EntitySet="AsignaturasCursos" />
+    </AssociationSet>
+    <AssociationSet Name="AsignaturasCursos_Cursos_ID_fk" Association="Self.AsignaturasCursos_Cursos_ID_fk">
+      <End Role="Cursos" EntitySet="Cursos" />
+      <End Role="AsignaturasCursos" EntitySet="AsignaturasCursos" />
+    </AssociationSet>
+    <AssociationSet Name="Cursos_Etapas_ID_fk" Association="Self.Cursos_Etapas_ID_fk">
+      <End Role="Etapas" EntitySet="Etapas" />
+      <End Role="Cursos" EntitySet="Cursos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

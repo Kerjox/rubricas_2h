@@ -1,0 +1,2 @@
+dotnet ef migrations add "Nombre"
+dotnet ef database update

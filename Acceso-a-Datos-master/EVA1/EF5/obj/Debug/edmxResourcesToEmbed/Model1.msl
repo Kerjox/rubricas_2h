@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FutboolModelStoreContainer" CdmEntityContainer="FutboolConn">
+    <EntitySetMapping Name="Equipoes">
+      <EntityTypeMapping TypeName="FutboolModel.Equipo">
+        <MappingFragment StoreEntitySet="Equipos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Futbolistas">
+      <EntityTypeMapping TypeName="FutboolModel.Futbolista">
+        <MappingFragment StoreEntitySet="Futbolistas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EquiposFutbolistas" TypeName="FutboolModel.EquiposFutbolistas" StoreEntitySet="EquiposFutbolistas">
+      <EndProperty Name="Equipos">
+        <ScalarProperty Name="id" ColumnName="idEquipo" />
+      </EndProperty>
+      <EndProperty Name="Futbolistas">
+        <ScalarProperty Name="id" ColumnName="idFurbolista" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

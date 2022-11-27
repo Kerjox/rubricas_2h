@@ -1,0 +1,6 @@
+<Datos>
+	<Persona id="1" dni="1111111A" nombre="Alcachofa" provincia="22"></Persona>
+	<Persona id="2" dni="2222222E" nombre="Sonia" provincia="80"></Persona>
+	<Persona id="3" dni="3333333S" nombre="Merche" provincia="80"></Persona>
+	<Persona id="4" dni="4444444F" nombre="Agustín" provincia="12"></Persona>
+</Datos>

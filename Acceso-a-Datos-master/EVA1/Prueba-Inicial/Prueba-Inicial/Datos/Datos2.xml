@@ -1,0 +1,26 @@
+<Datos>
+	<Persona>
+		<id>1</id>
+		<dni>1111111A</dni>
+		<nombre>Alcachofa</nombre>
+		<provincia>22</provincia>
+	</Persona>
+	<Persona>
+		<id>2</id>
+		<dni>2222222E</dni>
+		<nombre>Sonia</nombre>
+		<provincia>80</provincia>
+	</Persona>
+	<Persona>
+		<id>3</id>
+		<dni>3333333S</dni>
+		<nombre>Merche</nombre>
+		<provincia>80</provincia>
+	</Persona>
+	<Persona>
+		<id>4</id>
+		<dni>4444444F</dni>
+		<nombre>Agustín</nombre>
+		<provincia>12</provincia>
+	</Persona>
+</Datos>

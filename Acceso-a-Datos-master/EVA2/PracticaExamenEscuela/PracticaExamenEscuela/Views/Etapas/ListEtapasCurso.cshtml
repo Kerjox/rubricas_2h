@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PracticaExamenEscuela.Models.Etapas>
+
+@{
+    ViewBag.Title = "ListEtapasCurso";
+}
+
+<h2>ListEtapasCurso</h2>
+
+<p>
+  @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+  <form method="get">
+
+    @Html.DropDownList("idAsignatura", ViewBag.Asignaturas as SelectList, "Selecciona una asignatura", new {@class = "form-control col-md-2", onchange = "this.form.submit()"})
+  </form>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Etapa")
+        </th>
+        <th>
+            @Html.DisplayName("Curso")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acronimo)
+        </td>
+        <td>
+          @foreach (var curso in item.Cursos) {
+          
+            @Html.DisplayName(curso.NombreCurso + " ")
+          }
+        </td>
+    </tr>
+}
+
+</table>

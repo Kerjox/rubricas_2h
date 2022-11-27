@@ -1,0 +1,1 @@
+install-package EntityFramework -version 5.0.0

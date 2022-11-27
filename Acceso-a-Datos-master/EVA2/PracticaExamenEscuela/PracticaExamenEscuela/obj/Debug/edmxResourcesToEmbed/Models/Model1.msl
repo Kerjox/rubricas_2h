@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EscuelaModelStoreContainer" CdmEntityContainer="EscuelaEntities">
+    <EntitySetMapping Name="Asignaturas">
+      <EntityTypeMapping TypeName="EscuelaModel.Asignaturas">
+        <MappingFragment StoreEntitySet="Asignaturas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NombreAsignatura" ColumnName="NombreAsignatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsignaturasCursos">
+      <EntityTypeMapping TypeName="EscuelaModel.AsignaturasCursos">
+        <MappingFragment StoreEntitySet="AsignaturasCursos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AsignaturaID" ColumnName="AsignaturaID" />
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cursos">
+      <EntityTypeMapping TypeName="EscuelaModel.Cursos">
+        <MappingFragment StoreEntitySet="Cursos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+          <ScalarProperty Name="EtapaID" ColumnName="EtapaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etapas">
+      <EntityTypeMapping TypeName="EscuelaModel.Etapas">
+        <MappingFragment StoreEntitySet="Etapas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Acronimo" ColumnName="Acronimo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

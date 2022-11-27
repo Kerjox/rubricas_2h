@@ -1,0 +1,47 @@
+﻿@model PracticaExamenEscuela.Models.Asignaturas
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Asignaturas</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+          @Html.Label("Nombre Asignatura", htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.NombreAsignatura, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NombreAsignatura, "", new { @class = "text-danger" })
+          </div>
+        </div>
+        
+        <div class="form-group">
+          @Html.Label("Cursos", htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            @Html.ListBoxFor(model => model.CursoListID, ViewBag.cursos as List<SelectListItem>, new { htmlAttributes = new { @class = "form-control" } })
+          </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

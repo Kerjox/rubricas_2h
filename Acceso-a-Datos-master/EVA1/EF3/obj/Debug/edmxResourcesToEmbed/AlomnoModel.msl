@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ColegioModelStoreContainer" CdmEntityContainer="ColegioEntities">
+    <EntitySetMapping Name="Alumnoes">
+      <EntityTypeMapping TypeName="ColegioModel.Alumno">
+        <MappingFragment StoreEntitySet="Alumnoes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Curso_ID" ColumnName="Curso_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="ColegioModel.Alumno">
+        <ModificationFunctionMapping>
+          <UpdateFunction FunctionName="ColegioModel.Store.ActualizarAlumno">
+            <ScalarProperty Name="Edad" ParameterName="age" Version="Current" />
+            <ScalarProperty Name="Edad" ParameterName="age" Version="Current" />
+            <ScalarProperty Name="Sexo" ParameterName="sexo" Version="Current" />
+            <ScalarProperty Name="Apellido" ParameterName="lastname" Version="Current" />
+            <ScalarProperty Name="Nombre" ParameterName="name" Version="Current" />
+            <ScalarProperty Name="ID" ParameterName="id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="ColegioModel.Store.BorrarAlumno">
+            <ScalarProperty Name="ID" ParameterName="id" />
+          </DeleteFunction>
+          <InsertFunction FunctionName="ColegioModel.Store.InsertarAlumno">
+            <ScalarProperty Name="Edad" ParameterName="age" />
+            <ScalarProperty Name="Sexo" ParameterName="sexo" />
+            <ScalarProperty Name="Apellido" ParameterName="lastname" />
+            <ScalarProperty Name="Nombre" ParameterName="name" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ActualizarAlumno" FunctionName="ColegioModel.Store.ActualizarAlumno" />
+    <FunctionImportMapping FunctionImportName="BorrarAlumno" FunctionName="ColegioModel.Store.BorrarAlumno" />
+    <FunctionImportMapping FunctionImportName="InsertarAlumno" FunctionName="ColegioModel.Store.InsertarAlumno" />
+  </EntityContainerMapping>
+</Mapping>

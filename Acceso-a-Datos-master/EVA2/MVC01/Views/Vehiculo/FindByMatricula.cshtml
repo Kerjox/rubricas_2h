@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MVC01.Models.VehiculoModel>
+
+@{
+    ViewBag.Title = "FindByMatricula";
+}
+
+<h2>FindByMatricula</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("FindByMatricula", "Vehiculo", FormMethod.Get)) {
+    @Html.AntiForgeryToken()
+
+    <form>
+        <input type="search" placeholder="Matricula del veiculo" name="matricula" />
+
+        <button type="submit">Search</button>
+    </form>
+}
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Serie.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serie.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
