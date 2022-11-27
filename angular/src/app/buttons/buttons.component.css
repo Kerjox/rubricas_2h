@@ -1,0 +1,15 @@
+button {
+  margin-bottom: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.color {
+  color: red;
+}

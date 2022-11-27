@@ -1,0 +1,23 @@
+<h1>Alumnos List</h1>
+
+<app-calc-persons-list-alumnos (genderSelected)="filterPersons($event)" [totalPersons]="getTotal()" [totalMen]="getTotalMen()" [totalWomen]="getTotalWomen()"></app-calc-persons-list-alumnos>
+<table class="table">
+  <thead>
+  <th>Name</th>
+  <th>Street</th>
+  <th>Date</th>
+  <th>Gender</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let alumno of alumnosToShow">
+    <td><a [routerLink]="['/Alumno', alumno.name]">{{alumno.name | alumnoTitulo:alumno.gender}}</a></td>
+    <td>{{alumno.street}}</td>
+    <td>{{alumno.date | date:'dd-MMM-y'}}</td>
+    <td>{{alumno.gender}}</td>
+  </tr>
+  <tr *ngIf="this.alumnosToShow.length == 0">
+    <td class="col-error" colspan="5">No hay alumnos</td>
+  </tr>
+  </tbody>
+
+</table>

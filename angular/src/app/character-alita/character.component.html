@@ -1,0 +1,51 @@
+<table class="table">
+  <thead>
+    <th [colSpan]="colls">Personaje</th>
+  </thead>
+  <tr>
+    <th scope="row">
+      <label>Nombre Completo: </label>
+    </th>
+    <td>
+      {{getNombreCompleto()}}
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">
+      <label>Nombre: </label>
+    </th>
+    <td>
+      {{name}}
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">
+      <label>Apellido: </label>
+    </th>
+    <td>
+      {{surname}}
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">
+      <label>Dirección: </label>
+    </th>
+    <td>
+      {{direction}}
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">
+      <label>Edad: </label>
+    </th>
+    <td>
+      {{age}}
+    </td>
+  </tr>
+</table>
+<ng-container *ngFor="let nickname of nicknames; let i">
+  <li>{{nickname}}</li>
+</ng-container>
+<button class="btn btn-outline-success" type="button" (click)="aumentarEdad()">Aumentar Edad</button>
+<button class="btn btn-outline-danger" type="button" (click)="disminuirEdad()">Disminuir Edad</button>
+

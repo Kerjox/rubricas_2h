@@ -1,0 +1,32 @@
+<div class="row">
+
+  <div class="col">
+    <h1>{{header ? header : getCompleteName()}}</h1>
+    <img class="img-fluid rounded" [src]="imagen" alt=""/>
+    <app-alita></app-alita>
+  </div>
+
+  <div class="col">
+    <app-buttons></app-buttons>
+  </div>
+
+
+  <div class="col">
+    <app-events></app-events>
+  </div>
+
+
+
+</div>
+
+<div class="row">
+
+  <div class="col">
+    <app-list-alumnos></app-list-alumnos>
+  </div>
+
+  <div class="col">
+    <app-list-alumnos-curso></app-list-alumnos-curso>
+  </div>
+</div>
+

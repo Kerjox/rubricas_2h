@@ -1,0 +1,7 @@
+
+<select class="form-select-sm" [(ngModel)]="cursoSelected" (change)="filterCurse()">
+  <option [ngValue]="null" disabled>Selecciona un curso</option>
+  <ng-container *ngFor="let curso of cursos">
+    <option [value]="curso.id">{{curso.nombreCurso}}</option>
+  </ng-container>
+</select>

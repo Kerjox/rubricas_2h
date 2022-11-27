@@ -1,0 +1,25 @@
+
+<table class="table table-sm">
+  <tbody>
+    <tr>
+      <th>Nombre</th>
+      <td>{{alumno.name}}</td>
+    </tr>
+    <tr>
+      <th>Direccion</th>
+      <td>{{alumno.street}}</td>
+    </tr>
+    <tr>
+      <th>Fecha de nacimiento</th>
+      <td>{{alumno.date | date:'dd-MMM-y'}}</td>
+    </tr>
+    <tr>
+      <th>Genero</th>
+      <td>{{alumno.gender}}</td>
+    </tr>
+    <tr>
+      <th>Curso</th>
+      <td>{{alumno.curso.nombreCurso}}</td>
+    </tr>
+  </tbody>
+</table>
